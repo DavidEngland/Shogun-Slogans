@@ -1,23 +1,23 @@
 <?php
 /**
  * Plugin Name: Shogun Slogans
- * Plugin URI: https://github.com/your-username/shogun-slogans
+ * Plugin URI: https://github.com/DavidEngland/Shogun-Slogans
  * Description: A modern WordPress plugin for creating stunning animated slogans with typewriter effects, handwritten styles, and dynamic text display. Perfect for hero sections, quotes, and call-to-action messages.
  * Version: 3.0.0
  * Requires at least: 5.0
  * Requires PHP: 7.4
- * Author: Your Name
- * Author URI: https://yourwebsite.com
- * License: GPL v3 or later
- * License URI: https://www.gnu.org/licenses/gpl-3.0.html
+ * Author: David England
+ * Author URI: https://github.com/DavidEngland
+ * License: MIT License
+ * License URI: https://opensource.org/licenses/MIT
  * Text Domain: shogun-slogans
  * Domain Path: /languages
  * Network: false
  * 
  * @package ShogunSlogans
- * @author Your Name
- * @copyright 2025 Your Name
- * @license GPL-3.0+
+ * @author David England
+ * @copyright 2024 David England
+ * @license MIT
  */
 
 // Prevent direct access - Security first

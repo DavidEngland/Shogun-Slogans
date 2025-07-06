@@ -1,0 +1,120 @@
+name: WordPress Plugin Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        php-version: [7.4, 8.0, 8.1, 8.2]
+        wordpress-version: [6.0, 6.1, 6.2, 6.3, 6.4]
+    
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: wordpress_test
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-version }}
+        extensions: mysql, zip
+        coverage: none
+
+    - name: Setup WordPress
+      run: |
+        # Download WordPress
+        wget https://wordpress.org/wordpress-${{ matrix.wordpress-version }}.tar.gz
+        tar -xzf wordpress-${{ matrix.wordpress-version }}.tar.gz
+        
+        # Setup wp-config.php
+        cp wordpress/wp-config-sample.php wordpress/wp-config.php
+        sed -i "s/database_name_here/wordpress_test/" wordpress/wp-config.php
+        sed -i "s/username_here/root/" wordpress/wp-config.php
+        sed -i "s/password_here/password/" wordpress/wp-config.php
+        sed -i "s/localhost/127.0.0.1/" wordpress/wp-config.php
+
+    - name: Install Plugin
+      run: |
+        mkdir -p wordpress/wp-content/plugins/shogun-slogans
+        cp -r * wordpress/wp-content/plugins/shogun-slogans/
+        
+    - name: Setup WordPress Database
+      run: |
+        mysql -h 127.0.0.1 -u root -ppassword -e "CREATE DATABASE IF NOT EXISTS wordpress_test;"
+        cd wordpress && php -r "require_once 'wp-config.php'; require_once 'wp-admin/includes/upgrade.php'; wp_install('Test Site', 'admin', 'test@example.com', true, '', 'admin');"
+
+    - name: Run PHP Syntax Check
+      run: |
+        find wordpress/wp-content/plugins/shogun-slogans -name "*.php" -exec php -l {} \;
+
+    - name: Run Basic Plugin Tests
+      run: |
+        cd wordpress
+        php -r "
+        define('WP_USE_THEMES', false);
+        require_once 'wp-blog-header.php';
+        
+        // Activate plugin
+        activate_plugin('shogun-slogans/shogun-slogans-final.php');
+        
+        // Test shortcode registration
+        if (shortcode_exists('shogun_slogan')) {
+            echo 'SUCCESS: Shortcode registered\n';
+        } else {
+            echo 'ERROR: Shortcode not registered\n';
+            exit(1);
+        }
+        
+        // Test basic shortcode output
+        \$output = do_shortcode('[shogun_slogan text=\"Test Slogan\"]');
+        if (strpos(\$output, 'shogun-slogan-container') !== false) {
+            echo 'SUCCESS: Shortcode output generated\n';
+        } else {
+            echo 'ERROR: Shortcode output invalid\n';
+            exit(1);
+        }
+        
+        echo 'All tests passed!\n';
+        "
+
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install Dependencies
+      run: |
+        npm install -g htmlhint csslint jshint
+        
+    - name: Lint CSS
+      run: |
+        find assets/css -name "*.css" -exec csslint {} \; || true
+        
+    - name: Lint JavaScript
+      run: |
+        find assets/js -name "*.js" -exec jshint {} \; || true
+        
+    - name: Lint HTML
+      run: |
+        find . -name "*.html" -exec htmlhint {} \; || true
