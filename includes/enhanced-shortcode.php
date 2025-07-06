@@ -299,7 +299,7 @@ class ShogunSlogansEnhancedShortcode {
             ),
             'REIA Slogan' => array(
                 'shortcode' => '[shogun_animation type="typewriter" text="I will help you make The Smart Move - I guarantee it!" speed="80" color="#2c3e50"]',
-                'description' => 'Professional real estate slogan'
+                'description' => 'Professional slogan for Real Estate Intelligence Agency (RealEstate-Huntsville.Com)'
             ),
         );
     }

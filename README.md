@@ -123,6 +123,8 @@ Get creative with cursor characters:
 
 ### REIA Real Estate Examples
 
+Perfect for Real Estate Intelligence Agency (https://RealEstate-Huntsville.Com):
+
 ```html
 <!-- Main Hero Slogan -->
 [typewriter_text text="I will help you make The Smart Move - I guarantee it!" speed="80" cursor="|" loop="false"]
@@ -346,7 +348,7 @@ This project is licensed under the GPL v3 License - see the [LICENSE](LICENSE) f
 - Inspired by classic typewriter effects
 - Built with modern web standards
 - Tested by the WordPress community
-- Special thanks to REIA for the use case inspiration
+- Special thanks to REIA (Real Estate Intelligence Agency - https://RealEstate-Huntsville.Com) for the use case inspiration
 
 ## 📞 Support
 
