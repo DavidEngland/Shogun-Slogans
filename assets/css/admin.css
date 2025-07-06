@@ -1,0 +1,224 @@
+/* Shogun Slogans - Admin Styles */
+
+.shogun-admin-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.shogun-admin-main {
+    flex: 2;
+}
+
+.shogun-admin-sidebar {
+    flex: 1;
+    max-width: 350px;
+}
+
+.shogun-admin-container .card {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.shogun-admin-container .card h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #1d2327;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.shogun-admin-container .card h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #1d2327;
+}
+
+.shogun-admin-container .card code {
+    background: #f6f7f7;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 8px 12px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 13px;
+    display: inline-block;
+    margin: 5px 0;
+    color: #333;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.shogun-admin-container .card ul {
+    margin: 10px 0 0 20px;
+}
+
+.shogun-admin-container .card li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.shogun-preview-area {
+    background: #f9f9f9;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    margin: 15px 0;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shogun-preview-area .typewriter-demo {
+    background: transparent;
+    border: none;
+    border-left: 4px solid #007cba;
+    border-radius: 4px;
+    padding: 20px;
+    margin: 0;
+}
+
+.status-active {
+    color: #00a32a;
+    font-weight: 600;
+}
+
+.status-inactive {
+    color: #d63638;
+    font-weight: 600;
+}
+
+.example-code {
+    background: #f8f9fa;
+    border: 1px solid #e1e5e9;
+    border-radius: 4px;
+    padding: 12px;
+    margin: 10px 0;
+}
+
+.example-code strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #1d2327;
+}
+
+.example-code code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 12px;
+    word-break: break-all;
+}
+
+/* Responsive design for admin */
+@media (max-width: 1200px) {
+    .shogun-admin-container {
+        flex-direction: column;
+    }
+    
+    .shogun-admin-sidebar {
+        max-width: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .shogun-admin-container {
+        margin-top: 10px;
+        gap: 15px;
+    }
+    
+    .shogun-admin-container .card {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .shogun-preview-area {
+        padding: 20px;
+        min-height: 80px;
+    }
+    
+    .shogun-preview-area .typewriter-demo {
+        padding: 15px;
+        font-size: 16px;
+    }
+}
+
+/* Enhanced styling for better UX */
+.shogun-admin-container .card:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.shogun-admin-container .card h2:first-child {
+    margin-top: 0;
+}
+
+.shogun-admin-container .card p:last-child {
+    margin-bottom: 0;
+}
+
+/* Loading states */
+.shogun-loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.shogun-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #007cba;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: shogunSpin 1s linear infinite;
+}
+
+@keyframes shogunSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Help text styling */
+.help-text {
+    font-style: italic;
+    color: #646970;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Success/error messages */
+.shogun-message {
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+.shogun-message.success {
+    background: #d1e7dd;
+    border: 1px solid #badbcc;
+    color: #0f5132;
+}
+
+.shogun-message.error {
+    background: #f8d7da;
+    border: 1px solid #f5c2c7;
+    color: #842029;
+}
+
+.shogun-message.info {
+    background: #d1ecf1;
+    border: 1px solid #b8daff;
+    color: #055160;
+}

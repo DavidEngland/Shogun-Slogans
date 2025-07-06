@@ -1,0 +1,219 @@
+/* Shogun Slogans - Frontend Styles */
+
+/* Basic Slogan Styles */
+.shogun-slogan {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+    margin: 10px 0;
+}
+
+.shogun-slogan.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Slogan Animation Styles */
+.shogun-fade {
+    animation: shogunFadeIn 1s ease forwards;
+}
+
+.shogun-slide {
+    animation: shogunSlideIn 0.8s ease forwards;
+}
+
+.shogun-typewriter {
+    animation: shogunTypewriter 0.5s ease forwards;
+}
+
+/* Typewriter Effect Styles */
+.shogun-typewriter {
+    font-family: 'Courier New', monospace;
+    position: relative;
+    display: inline-block;
+    min-height: 1.2em;
+    line-height: 1.4;
+}
+
+.typewriter-text {
+    display: inline;
+    vertical-align: baseline;
+}
+
+.typewriter-cursor {
+    display: inline-block;
+    font-weight: normal;
+    color: currentColor;
+    animation: typewriterBlink 1s infinite step-end;
+    vertical-align: baseline;
+    margin-left: 1px;
+}
+
+.typewriter-cursor.hidden {
+    opacity: 0;
+}
+
+/* Typewriter Demo Styles for Admin */
+.typewriter-demo {
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    line-height: 1.5;
+    padding: 20px;
+    background: #f8f9fa;
+    border-left: 4px solid #007cba;
+    border-radius: 4px;
+    color: #333;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+/* Animations */
+@keyframes shogunFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shogunSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes shogunTypewriter {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes typewriterBlink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+/* Theme Integration */
+.shogun-slogan,
+.shogun-typewriter {
+    color: inherit;
+    font-size: inherit;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .shogun-typewriter {
+        font-size: 16px;
+    }
+    
+    .typewriter-demo {
+        font-size: 16px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .shogun-typewriter {
+        font-size: 14px;
+    }
+    
+    .typewriter-demo {
+        font-size: 14px;
+        padding: 12px;
+    }
+}
+
+/* Accessibility: Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .typewriter-cursor {
+        animation: none !important;
+        opacity: 0.7;
+    }
+    
+    .shogun-slogan,
+    .shogun-fade,
+    .shogun-slide,
+    .shogun-typewriter {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+/* Custom Typewriter Variations */
+.shogun-typewriter.fast {
+    --typing-speed: 50ms;
+}
+
+.shogun-typewriter.slow {
+    --typing-speed: 200ms;
+}
+
+.shogun-typewriter.dramatic {
+    --typing-speed: 300ms;
+    letter-spacing: 0.05em;
+}
+
+/* Special Cursor Styles */
+.typewriter-cursor.block-cursor {
+    background: currentColor;
+    width: 0.6em;
+    height: 1em;
+    margin-left: 2px;
+    animation: blockCursorBlink 1s infinite;
+}
+
+.typewriter-cursor.line-cursor {
+    border-right: 2px solid currentColor;
+    margin-left: 1px;
+    padding-right: 1px;
+}
+
+@keyframes blockCursorBlink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0.3;
+    }
+}
+
+/* High-quality text rendering */
+.shogun-typewriter,
+.shogun-slogan {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Print styles */
+@media print {
+    .typewriter-cursor {
+        display: none;
+    }
+    
+    .shogun-typewriter,
+    .shogun-slogan {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

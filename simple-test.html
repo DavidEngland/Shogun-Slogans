@@ -1,0 +1,31 @@
+<!-- SIMPLE TEST - Copy this into a Custom HTML block -->
+
+<div style="border: 2px solid red; padding: 20px; background: yellow;">
+    <h3>Plugin Test</h3>
+    <p>If you see this yellow box, HTML is working.</p>
+    
+    <!-- Test 1: Basic HTML typewriter -->
+    <div class="shogun-typewriter" 
+         data-text="Test message from REIA"
+         data-speed="100"
+         data-cursor="|"
+         data-loop="false">
+        <span class="typewriter-text"></span>
+        <span class="typewriter-cursor">|</span>
+    </div>
+    
+    <!-- Test 2: Simple shortcode -->
+    [typewriter_text text="Simple shortcode test" speed="100" cursor="|"]
+    
+</div>
+
+<!-- DEBUGGING STEPS:
+1. Copy this entire block
+2. Paste into WordPress Custom HTML block
+3. Save/Preview page
+4. Tell me what you see:
+   - Yellow box appears? (HTML working)
+   - Text animates? (Plugin working)
+   - Shortcode appears as text? (Shortcodes not processed)
+   - Nothing happens? (Plugin not active/loaded)
+-->

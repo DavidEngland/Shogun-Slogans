@@ -1,0 +1,721 @@
+/**
+ * Shogun Slogans - Final Frontend Styles
+ * Version: 3.1.0
+ * 
+ * Comprehensive CSS for all animation styles and effects
+ * - Responsive design
+ * - Accessibility support  
+ * - Modern CSS features
+ * - Performance optimized
+ * - Cross-browser compatible
+ * 
+ * @package ShogunSlogans
+ * @since 3.1.0
+ */
+
+/* ==========================================================================
+   CSS Custom Properties (Variables)
+   ========================================================================== */
+
+:root {
+    /* Color Palette */
+    --shogun-primary: #002D5F;
+    --shogun-accent: #0073e6;
+    --shogun-secondary: #ff6b35;
+    --shogun-success: #28a745;
+    --shogun-warning: #ffc107;
+    --shogun-danger: #dc3545;
+    
+    /* Typography */
+    --shogun-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --shogun-font-mono: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Courier New', monospace;
+    --shogun-font-handwritten: 'Dancing Script', 'Caveat', 'Brush Script MT', cursive;
+    
+    /* Spacing */
+    --shogun-spacing-xs: 0.25rem;
+    --shogun-spacing-sm: 0.5rem;
+    --shogun-spacing-md: 1rem;
+    --shogun-spacing-lg: 1.5rem;
+    --shogun-spacing-xl: 2rem;
+    
+    /* Animation */
+    --shogun-duration-fast: 0.15s;
+    --shogun-duration-normal: 0.3s;
+    --shogun-duration-slow: 0.6s;
+    --shogun-easing-ease: ease;
+    --shogun-easing-ease-in-out: ease-in-out;
+    --shogun-easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Shadows */
+    --shogun-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+    --shogun-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shogun-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+    
+    /* Borders */
+    --shogun-border-radius: 0.375rem;
+    --shogun-border-radius-lg: 0.5rem;
+}
+
+/* ==========================================================================
+   Base Slogan Styles
+   ========================================================================== */
+
+.shogun-slogan,
+.shogun-typewriter,
+.shogun-animated-text {
+    display: inline-block;
+    font-family: var(--shogun-font-family);
+    line-height: 1.4;
+    margin: var(--shogun-spacing-md) 0;
+    position: relative;
+    
+    /* Smooth transitions */
+    transition: opacity var(--shogun-duration-normal) var(--shogun-easing-ease),
+                transform var(--shogun-duration-normal) var(--shogun-easing-ease);
+}
+
+/* Loading state */
+.shogun-slogan:not(.loaded),
+.shogun-typewriter:not(.loaded),
+.shogun-animated-text:not(.loaded) {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Loaded state */
+.shogun-slogan.loaded,
+.shogun-typewriter.loaded,
+.shogun-animated-text.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   Typewriter Effect Styles
+   ========================================================================== */
+
+.shogun-typewriter {
+    font-family: var(--shogun-font-mono);
+    position: relative;
+    display: inline-block;
+    min-height: 1.2em;
+    line-height: 1.4;
+}
+
+.typewriter-text {
+    display: inline;
+    vertical-align: baseline;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.typewriter-cursor {
+    display: inline-block;
+    font-weight: normal;
+    color: currentColor;
+    animation: typewriterBlink 1s infinite step-end;
+    vertical-align: baseline;
+    margin-left: 1px;
+    line-height: inherit;
+}
+
+/* Cursor Animations */
+@keyframes typewriterBlink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Alternative cursor styles */
+.typewriter-cursor.cursor-steady {
+    animation: none;
+    opacity: 1;
+}
+
+.typewriter-cursor.cursor-pulse {
+    animation: cursorPulse 1.5s ease-in-out infinite;
+}
+
+.typewriter-cursor.cursor-glow {
+    animation: cursorGlow 2s ease-in-out infinite;
+}
+
+@keyframes cursorPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+@keyframes cursorGlow {
+    0%, 100% { 
+        opacity: 1; 
+        text-shadow: 0 0 0 currentColor;
+    }
+    50% { 
+        opacity: 0.8; 
+        text-shadow: 0 0 8px currentColor;
+    }
+}
+
+/* ==========================================================================
+   Animation Styles
+   ========================================================================== */
+
+/* Fade Animation */
+.shogun-fade,
+.shogun-animation-fade {
+    animation: shogunFadeIn var(--shogun-duration-slow) var(--shogun-easing-ease) forwards;
+}
+
+@keyframes shogunFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Slide Animation */
+.shogun-slide,
+.shogun-animation-slide {
+    animation: shogunSlideIn var(--shogun-duration-normal) var(--shogun-easing-ease) forwards;
+}
+
+@keyframes shogunSlideIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Bounce Animation */
+.shogun-bounce,
+.shogun-animation-bounce {
+    animation: shogunBounceIn var(--shogun-duration-slow) var(--shogun-easing-bounce) forwards;
+}
+
+@keyframes shogunBounceIn {
+    from { 
+        opacity: 0; 
+        transform: scale(0.3); 
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.05); 
+    }
+    70% { 
+        transform: scale(0.9); 
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1); 
+    }
+}
+
+/* Typewriter Animation */
+.shogun-typewriter,
+.shogun-animation-typewriter {
+    animation: shogunTypewriter var(--shogun-duration-fast) var(--shogun-easing-ease) forwards;
+}
+
+@keyframes shogunTypewriter {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ==========================================================================
+   Style Variations
+   ========================================================================== */
+
+/* Handwritten Style */
+.shogun-handwritten {
+    font-family: var(--shogun-font-handwritten);
+    font-size: 1.2em;
+    color: var(--shogun-primary);
+    position: relative;
+}
+
+.shogun-handwritten::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--shogun-accent), transparent);
+    animation: handwrittenUnderline 2s ease-in-out infinite;
+}
+
+@keyframes handwrittenUnderline {
+    0%, 100% { transform: scaleX(0); }
+    50% { transform: scaleX(1); }
+}
+
+/* Quill Style */
+.shogun-quill {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    color: var(--shogun-primary);
+    position: relative;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.shogun-quill::after {
+    content: '🪶';
+    position: absolute;
+    top: -10px;
+    right: -20px;
+    font-size: 0.8em;
+    animation: quillFloat 3s ease-in-out infinite;
+}
+
+@keyframes quillFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(5deg); }
+}
+
+/* Fountain Pen Style */
+.shogun-fountain {
+    font-family: 'Brush Script MT', cursive;
+    color: var(--shogun-primary);
+    position: relative;
+    background: linear-gradient(45deg, var(--shogun-primary), var(--shogun-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Gradient Animated Style */
+.shogun-gradient {
+    background: linear-gradient(45deg, var(--shogun-primary), var(--shogun-accent), var(--shogun-secondary), var(--shogun-primary));
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 4s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(0, 45, 95, 0.3);
+    font-weight: 700;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Neon Style */
+.shogun-neon {
+    color: var(--shogun-accent);
+    text-shadow: 
+        0 0 5px currentColor,
+        0 0 10px currentColor,
+        0 0 15px currentColor,
+        0 0 20px currentColor;
+    animation: neonFlicker 2s ease-in-out infinite alternate;
+}
+
+@keyframes neonFlicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow: 
+            0 0 5px currentColor,
+            0 0 10px currentColor,
+            0 0 15px currentColor,
+            0 0 20px currentColor;
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
+
+/* Glitch Style */
+.shogun-glitch {
+    position: relative;
+    color: var(--shogun-primary);
+    animation: glitchText 2s infinite;
+}
+
+.shogun-glitch::before,
+.shogun-glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.shogun-glitch::before {
+    animation: glitchTop 1s linear infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+}
+
+.shogun-glitch::after {
+    animation: glitchBtm 1.5s linear infinite;
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchText {
+    0%, 99.9% { transform: translate(0); }
+    1% { transform: translate(2px, 0); }
+    3% { transform: translate(-1px, 0); }
+    5% { transform: translate(1px, 0); }
+}
+
+@keyframes glitchTop {
+    0%, 99.9% { transform: translate(0); }
+    2% { transform: translate(2px, -2px); }
+    4% { transform: translate(-2px, 2px); }
+}
+
+@keyframes glitchBtm {
+    0%, 99.9% { transform: translate(0); }
+    1% { transform: translate(-2px, 0); }
+    3% { transform: translate(2px, 2px); }
+    5% { transform: translate(-1px, -2px); }
+}
+
+/* ==========================================================================
+   Advanced Animations
+   ========================================================================== */
+
+/* Matrix Style */
+.shogun-matrix {
+    font-family: var(--shogun-font-mono);
+    color: #00ff00;
+    background: #000;
+    padding: var(--shogun-spacing-md);
+    border-radius: var(--shogun-border-radius);
+    position: relative;
+    overflow: hidden;
+}
+
+.shogun-matrix::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.2), transparent);
+    animation: matrixScan 2s linear infinite;
+}
+
+@keyframes matrixScan {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Terminal Style */
+.shogun-terminal {
+    font-family: var(--shogun-font-mono);
+    background: #1a1a1a;
+    color: #00ff00;
+    padding: var(--shogun-spacing-md);
+    border-radius: var(--shogun-border-radius);
+    border: 1px solid #333;
+    position: relative;
+}
+
+.shogun-terminal::before {
+    content: '$ ';
+    color: #00ff00;
+}
+
+/* Rainbow Style */
+.shogun-rainbow {
+    background: linear-gradient(
+        45deg, 
+        #ff0000, #ff7700, #ffdd00, #00ff00, 
+        #0099ff, #6633ff, #ff00ff, #ff0000
+    );
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbowShift 3s ease infinite;
+}
+
+@keyframes rainbowShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Fire Style */
+.shogun-fire {
+    color: #ff4500;
+    text-shadow: 
+        0 0 5px #ff4500,
+        0 0 10px #ff4500,
+        0 0 15px #ff4500,
+        0 0 20px #ff4500,
+        0 0 35px #ff4500,
+        0 0 40px #ff6600;
+    animation: fireFlicker 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes fireFlicker {
+    0% { text-shadow: 
+        0 0 5px #ff4500,
+        0 0 10px #ff4500,
+        0 0 15px #ff4500,
+        0 0 20px #ff4500,
+        0 0 35px #ff4500,
+        0 0 40px #ff6600; }
+    100% { text-shadow: 
+        0 0 2px #ff4500,
+        0 0 5px #ff4500,
+        0 0 8px #ff4500,
+        0 0 12px #ff4500,
+        0 0 18px #ff4500,
+        0 0 25px #ff6600; }
+}
+
+/* ==========================================================================
+   Size Variations
+   ========================================================================== */
+
+.shogun-size-small {
+    font-size: 0.875rem;
+}
+
+.shogun-size-normal {
+    font-size: 1rem;
+}
+
+.shogun-size-large {
+    font-size: 1.25rem;
+}
+
+.shogun-size-xl {
+    font-size: 1.5rem;
+}
+
+.shogun-size-xxl {
+    font-size: 2rem;
+}
+
+/* ==========================================================================
+   WordPress Block Editor Compatibility
+   ========================================================================== */
+
+.wp-block-html .shogun-slogan,
+.wp-block-html .shogun-typewriter,
+.wp-block-html .shogun-animated-text {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.wp-block-html + .wp-block-html .shogun-slogan,
+.wp-block-html + .wp-block-html .shogun-typewriter,
+.wp-block-html + .wp-block-html .shogun-animated-text {
+    margin-top: var(--shogun-spacing-lg);
+}
+
+/* ==========================================================================
+   Accessibility & Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .shogun-slogan,
+    .shogun-typewriter,
+    .shogun-animated-text,
+    .typewriter-cursor {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    .shogun-slogan,
+    .shogun-typewriter,
+    .shogun-animated-text {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    .typewriter-cursor {
+        opacity: 1 !important;
+    }
+    
+    /* Hide decorative pseudo-elements for reduced motion */
+    .shogun-handwritten::before,
+    .shogun-quill::after,
+    .shogun-matrix::before {
+        display: none !important;
+    }
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .shogun-slogan,
+    .shogun-typewriter,
+    .shogun-animated-text {
+        font-size: clamp(1rem, 4vw, 1.5rem);
+        line-height: 1.3;
+    }
+    
+    .shogun-size-xl {
+        font-size: clamp(1.25rem, 5vw, 1.75rem);
+    }
+    
+    .shogun-size-xxl {
+        font-size: clamp(1.5rem, 6vw, 2.25rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .shogun-slogan,
+    .shogun-typewriter,
+    .shogun-animated-text {
+        margin: var(--shogun-spacing-sm) 0;
+    }
+    
+    .shogun-terminal,
+    .shogun-matrix {
+        padding: var(--shogun-spacing-sm);
+        font-size: 0.875rem;
+    }
+}
+
+/* ==========================================================================
+   High Contrast Mode Support
+   ========================================================================== */
+
+@media (prefers-contrast: high) {
+    .shogun-gradient,
+    .shogun-rainbow {
+        background: none !important;
+        -webkit-text-fill-color: currentColor !important;
+        color: inherit !important;
+    }
+    
+    .shogun-neon,
+    .shogun-fire {
+        text-shadow: none !important;
+        color: inherit !important;
+    }
+    
+    .shogun-matrix {
+        background: Canvas !important;
+        color: CanvasText !important;
+        border-color: CanvasText !important;
+    }
+    
+    .shogun-terminal {
+        background: Canvas !important;
+        color: CanvasText !important;
+        border-color: CanvasText !important;
+    }
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+    .shogun-slogan,
+    .shogun-typewriter,
+    .shogun-animated-text {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        text-shadow: none !important;
+        background: none !important;
+        -webkit-text-fill-color: currentColor !important;
+        color: black !important;
+    }
+    
+    .typewriter-cursor {
+        display: none !important;
+    }
+    
+    .shogun-matrix,
+    .shogun-terminal {
+        background: white !important;
+        color: black !important;
+        border: 1px solid black !important;
+    }
+}
+
+/* ==========================================================================
+   Focus States for Accessibility
+   ========================================================================== */
+
+.shogun-slogan:focus,
+.shogun-typewriter:focus,
+.shogun-animated-text:focus {
+    outline: 2px solid var(--shogun-accent);
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Loading States
+   ========================================================================== */
+
+.shogun-loading {
+    position: relative;
+    color: transparent !important;
+}
+
+.shogun-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1em;
+    height: 1em;
+    margin: -0.5em 0 0 -0.5em;
+    border: 2px solid var(--shogun-accent);
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   Error States
+   ========================================================================== */
+
+.shogun-error {
+    color: var(--shogun-danger) !important;
+    opacity: 0.7;
+    font-style: italic;
+}
+
+.shogun-error::before {
+    content: '⚠ ';
+    font-style: normal;
+}
+
+/* ==========================================================================
+   Custom Properties for Theming
+   ========================================================================== */
+
+.shogun-theme-dark {
+    --shogun-primary: #ffffff;
+    --shogun-accent: #64b5f6;
+    --shogun-secondary: #ff8a65;
+}
+
+.shogun-theme-light {
+    --shogun-primary: #212121;
+    --shogun-accent: #1976d2;
+    --shogun-secondary: #f57c00;
+}
+
+/* Apply theme colors */
+.shogun-theme-dark .shogun-slogan,
+.shogun-theme-dark .shogun-typewriter,
+.shogun-theme-dark .shogun-animated-text {
+    color: var(--shogun-primary);
+}
+
+.shogun-theme-light .shogun-slogan,
+.shogun-theme-light .shogun-typewriter,
+.shogun-theme-light .shogun-animated-text {
+    color: var(--shogun-primary);
+}

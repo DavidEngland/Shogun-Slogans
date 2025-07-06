@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordPress Shortcode Ready Examples - Shogun Slogans</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .block-section {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .block-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .shortcode-example {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 13px;
+            position: relative;
+        }
+        
+        .shortcode-example::before {
+            content: "Copy this shortcode:";
+            position: absolute;
+            top: -12px;
+            left: 10px;
+            background: #007cba;
+            color: white;
+            padding: 2px 8px;
+            font-size: 10px;
+            border-radius: 3px;
+            font-family: sans-serif;
+        }
+        
+        .copy-instruction {
+            background: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        
+        .reia-showcase {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .reia-showcase h2 {
+            color: white;
+            border-bottom: 2px solid white;
+            padding-bottom: 10px;
+        }
+        
+        .preview-note {
+            background: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .instructions {
+            background: #e7f3ff;
+            color: #0066cc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #b3d9ff;
+        }
+        
+        .step {
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>🗾 Shogun Slogans - WordPress Ready Shortcodes</h1>
+    
+    <div class="instructions">
+        <h2>📋 How to Use These Shortcodes</h2>
+        <div class="step"><strong>Step 1:</strong> Install and activate the Shogun Slogans plugin</div>
+        <div class="step"><strong>Step 2:</strong> Copy any shortcode example below</div>
+        <div class="step"><strong>Step 3:</strong> Paste into a WordPress Custom HTML block or directly in text editor</div>
+        <div class="step"><strong>Step 4:</strong> Save and view your page</div>
+    </div>
+    
+    <div class="reia-showcase">
+        <h2>🏠 REIA Featured Slogans</h2>
+        <p>Ready-to-use shortcodes for Real Estate Investment Association</p>
+    </div>
+    
+    <div class="block-section">
+        <h2 class="block-title">Main REIA Slogan</h2>
+        
+        <div class="copy-instruction">
+            Copy and paste this shortcode into your WordPress page or post:
+        </div>
+        
+        <div class="shortcode-example">
+[typewriter_text text="I will help you make The Smart Move - I guarantee it!" speed="80" cursor="|" loop="false"]
+        </div>
+        
+        <div class="preview-note">
+            <strong>Preview:</strong> This will create a typewriter effect that types out the REIA slogan at 80ms per character with a standard cursor.
+        </div>
+    </div>
+    
+    <div class="block-section">
+        <h2 class="block-title">REIA Attribution</h2>
+        
+        <div class="shortcode-example">
+[typewriter_text text="- Mikko Jetsu, REIA" speed="100" cursor="★" delay="3000" loop="false"]
+        </div>
+        
+        <div class="preview-note">
+            <strong>Preview:</strong> This will appear 3 seconds after the main slogan, with a star cursor to attribute the quote.
+        </div>
+    </div>
+    
+    <div class="block-section">
+        <h2 class="block-title">REIA Call to Action</h2>
+        
+        <div class="shortcode-example">
+[shogun_slogan text="Join REIA today and make your Smart Move!" style="handwritten" animation="bounce" speed="1000"]
+        </div>
+        
+        <div class="preview-note">
+            <strong>Preview:</strong> A handwritten-style slogan with bouncing animation, perfect for calls to action.
+        </div>
+    </div>
+    
+    <div class="block-section">
+        <h2 class="block-title">Basic Typewriter Examples</h2>
+        
+        <h3>Simple Welcome Message</h3>
+        <div class="shortcode-example">
+[typewriter_text text="Welcome to our website!" speed="100"]
+        </div>
+        
+        <h3>Fast Typing Effect</h3>
+        <div class="shortcode-example">
+[typewriter_text text="This types super fast!" speed="30" cursor="_"]
+        </div>
+        
+        <h3>Slow and Dramatic</h3>
+        <div class="shortcode-example">
+[typewriter_text text="This... types... very... slowly..." speed="300" cursor="▌"]
+        </div>
+        
+        <h3>Custom Emoji Cursor</h3>
+        <div class="shortcode-example">
+[typewriter_text text="Fun with emoji cursors!" speed="100" cursor="🔥"]
+        </div>
+        
+        <h3>Looping Animation</h3>
+        <div class="shortcode-example">
+[typewriter_text text="This will repeat forever!" speed="100" cursor="|" loop="true"]
+        </div>
+    </div>
+    
+    <div class="block-section">
+        <h2 class="block-title">Advanced Slogan Styles</h2>
+        
+        <h3>Gradient Animated Text</h3>
+        <div class="shortcode-example">
+[shogun_slogan text="Premium Real Estate Services" style="gradient" animation="fade" speed="1500"]
+        </div>
+        
+        <h3>Handwritten Style</h3>
+        <div class="shortcode-example">
+[shogun_slogan text="Your trusted real estate partner" style="handwritten" animation="slide" speed="1000"]
+        </div>
+        
+        <h3>Professional Terminal Look</h3>
+        <div class="shortcode-example">
+[shogun_slogan text="Data-driven real estate decisions" style="terminal" animation="typewriter" speed="800"]
+        </div>
+        
+        <h3>Neon Glow Effect</h3>
+        <div class="shortcode-example">
+[shogun_slogan text="Future of Real Estate" style="neon" animation="bounce" speed="1200"]
+        </div>
+        
+        <h3>Rainbow Text</h3>
+        <div class="shortcode-example">
+[shogun_slogan text="Colorful Property Solutions" style="rainbow" animation="fade" speed="1000"]
+        </div>
+    </div>
+    
+    <div class="block-section">
+        <h2 class="block-title">Animated Text Effects</h2>
+        
+        <h3>Simple Fade In</h3>
+        <div class="shortcode-example">
+[animated_text text="Smooth fade in effect" animation="fade" speed="1000"]
+        </div>
+        
+        <h3>Slide In Animation</h3>
+        <div class="shortcode-example">
+[animated_text text="Slides in from below" animation="slide" speed="800"]
+        </div>
+        
+        <h3>Bounce In Effect</h3>
+        <div class="shortcode-example">
+[animated_text text="Bounces in with style" animation="bounce" speed="1200"]
+        </div>
+        
+        <h3>Delayed Animation</h3>
+        <div class="shortcode-example">
+[animated_text text="Appears after 2 seconds" animation="fade" speed="1000" delay="2000"]
+        </div>
+        
+        <h3>Looping Animation</h3>
+        <div class="shortcode-example">
+[animated_text text="Continuously animating" animation="bounce" speed="1000" loop="true"]
+        </div>
+    </div>
+    
+    <div class="block-section">
+        <h2 class="block-title">Complete REIA Page Example</h2>
+        
+        <div class="copy-instruction">
+            Copy this complete block for a full REIA landing page section:
+        </div>
+        
+        <div class="shortcode-example">
+<!-- REIA Hero Section -->
+<div style="text-align: center; padding: 40px 20px; background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); color: white; border-radius: 10px; margin: 20px 0;">
+
+<h2 style="color: white; margin-bottom: 20px;">Real Estate Investment Association</h2>
+
+[typewriter_text text="I will help you make The Smart Move - I guarantee it!" speed="80" cursor="|" loop="false"]
+
+<div style="margin-top: 15px;">
+[typewriter_text text="- Mikko Jetsu, REIA" speed="100" cursor="★" delay="4000" loop="false"]
+</div>
+
+<div style="margin-top: 30px;">
+[shogun_slogan text="Join REIA today and start making Smart Moves!" style="handwritten" animation="bounce" speed="1200"]
+</div>
+
+</div>
+
+<!-- Additional Call to Action -->
+<div style="text-align: center; margin: 30px 0;">
+[animated_text text="Ready to invest in your future?" animation="fade" speed="1000" delay="8000"]
+</div>
+        </div>
+    </div>
+    
+    <div class="block-section">
+        <h2 class="block-title">WordPress Block Editor Tips</h2>
+        
+        <div class="preview-note">
+            <h3>📝 Using in Block Editor:</h3>
+            <ul>
+                <li>Add a <strong>Custom HTML</strong> block</li>
+                <li>Paste any shortcode from above</li>
+                <li>Preview or publish to see the animation</li>
+            </ul>
+            
+            <h3>📝 Using in Classic Editor:</h3>
+            <ul>
+                <li>Switch to <strong>Text</strong> mode</li>
+                <li>Paste the shortcode directly</li>
+                <li>Switch back to Visual mode if needed</li>
+            </ul>
+            
+            <h3>⚙️ Customization Options:</h3>
+            <ul>
+                <li><strong>text:</strong> The text to display</li>
+                <li><strong>speed:</strong> Typing speed in milliseconds (lower = faster)</li>
+                <li><strong>cursor:</strong> The cursor character (|, _, ▌, ★, 🔥, etc.)</li>
+                <li><strong>loop:</strong> "true" or "false" for repeating animation</li>
+                <li><strong>delay:</strong> Delay before starting in milliseconds</li>
+                <li><strong>style:</strong> typewriter, handwritten, gradient, neon, rainbow, terminal</li>
+                <li><strong>animation:</strong> fade, slide, bounce, typewriter</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="block-section">
+        <h2 class="block-title">Troubleshooting</h2>
+        
+        <div class="preview-note">
+            <h3>❓ If shortcodes don't work:</h3>
+            <ol>
+                <li>Make sure the Shogun Slogans plugin is activated</li>
+                <li>Check that you're using a Custom HTML block (not a Paragraph block)</li>
+                <li>Verify there are no extra spaces or characters in the shortcode</li>
+                <li>Try refreshing the page after saving</li>
+                <li>Check the WordPress admin Tools > Shogun Slogans Tools for diagnostics</li>
+            </ol>
+            
+            <h3>✅ If you see the animation working:</h3>
+            <p>Perfect! The plugin is working correctly. You can now customize the shortcodes with different text, speeds, and styles.</p>
+        </div>
+    </div>
+    
+</body>
+</html>

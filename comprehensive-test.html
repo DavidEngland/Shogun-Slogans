@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shogun Slogans - Complete Test Suite</title>
+    
+    <!-- Load the final CSS -->
+    <link rel="stylesheet" href="assets/css/slogans-final.css">
+    
+    <!-- Load jQuery (simulating WordPress environment) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .test-section {
+            background: white;
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .test-section h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .test-section h3 {
+            color: #34495e;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .test-demo {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .test-code {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 13px;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-success { background: #28a745; }
+        .status-warning { background: #ffc107; }
+        .status-error { background: #dc3545; }
+        
+        .plugin-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .plugin-info h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5rem;
+        }
+        
+        .plugin-info p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+        
+        .reia-showcase {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .controls {
+            background: #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .controls button {
+            background: #007cba;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        
+        .controls button:hover {
+            background: #005a87;
+        }
+        
+        .debug-info {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="plugin-info">
+        <h1>🗾 Shogun Slogans</h1>
+        <p>Complete Test Suite - Version 3.1.0</p>
+    </div>
+    
+    <div class="test-section">
+        <h2><span class="status-indicator status-success"></span>Plugin Status & Diagnostics</h2>
+        
+        <div class="debug-info" id="debug-info">
+            <div>🔍 Loading diagnostics...</div>
+        </div>
+        
+        <div class="controls">
+            <button onclick="runDiagnostics()">Run Diagnostics</button>
+            <button onclick="testAllAnimations()">Test All Animations</button>
+            <button onclick="pauseAllAnimations()">Pause All</button>
+            <button onclick="resumeAllAnimations()">Resume All</button>
+            <button onclick="window.location.reload()">Reload Page</button>
+        </div>
+    </div>
+    
+    <div class="reia-showcase">
+        <h2>🏠 REIA Featured Slogan</h2>
+        <p>This is the main slogan for Real Estate Investment Association</p>
+        
+        <div class="test-demo">
+            <div class="shogun-typewriter" 
+                 data-text="I will help you make The Smart Move - I guarantee it!"
+                 data-speed="80"
+                 data-cursor="|"
+                 data-loop="false">
+                <span class="typewriter-text"></span>
+                <span class="typewriter-cursor">|</span>
+            </div>
+        </div>
+        
+        <div class="test-code">
+WordPress Shortcode:<br>
+[typewriter_text text="I will help you make The Smart Move - I guarantee it!" speed="80" cursor="|"]
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2><span class="status-indicator status-success"></span>Basic Typewriter Effects</h2>
+        
+        <h3>1. Standard Typewriter</h3>
+        <div class="test-demo">
+            <div class="shogun-typewriter" 
+                 data-text="Hello from Shogun Slogans!"
+                 data-speed="100"
+                 data-cursor="|"
+                 data-loop="false">
+                <span class="typewriter-text"></span>
+                <span class="typewriter-cursor">|</span>
+            </div>
+        </div>
+        
+        <h3>2. Fast Typing</h3>
+        <div class="test-demo">
+            <div class="shogun-typewriter" 
+                 data-text="This types really fast!"
+                 data-speed="30"
+                 data-cursor="_"
+                 data-loop="false">
+                <span class="typewriter-text"></span>
+                <span class="typewriter-cursor">_</span>
+            </div>
+        </div>
+        
+        <h3>3. Slow & Deliberate</h3>
+        <div class="test-demo">
+            <div class="shogun-typewriter" 
+                 data-text="This... types... very... slowly..."
+                 data-speed="300"
+                 data-cursor="▌"
+                 data-loop="false">
+                <span class="typewriter-text"></span>
+                <span class="typewriter-cursor">▌</span>
+            </div>
+        </div>
+        
+        <h3>4. Custom Cursor Characters</h3>
+        <div class="test-demo">
+            <div class="shogun-typewriter" 
+                 data-text="Creative cursors: ★ ⚡ 🔥 ✨ 💫"
+                 data-speed="100"
+                 data-cursor="★"
+                 data-loop="false">
+                <span class="typewriter-text"></span>
+                <span class="typewriter-cursor">★</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2><span class="status-indicator status-success"></span>Advanced Animation Styles</h2>
+        
+        <h3>1. Handwritten Style</h3>
+        <div class="test-demo">
+            <div class="shogun-slogan shogun-handwritten" 
+                 data-text="Beautiful handwritten text"
+                 data-animation="fade">
+                <span class="slogan-text">Beautiful handwritten text</span>
+            </div>
+        </div>
+        
+        <h3>2. Gradient Animated</h3>
+        <div class="test-demo">
+            <div class="shogun-slogan shogun-gradient" 
+                 data-text="Stunning gradient effects"
+                 data-animation="fade">
+                <span class="slogan-text">Stunning gradient effects</span>
+            </div>
+        </div>
+        
+        <h3>3. Neon Glow</h3>
+        <div class="test-demo" style="background: #1a1a1a;">
+            <div class="shogun-slogan shogun-neon" 
+                 data-text="Neon text effect"
+                 data-animation="fade">
+                <span class="slogan-text">Neon text effect</span>
+            </div>
+        </div>
+        
+        <h3>4. Rainbow Text</h3>
+        <div class="test-demo">
+            <div class="shogun-slogan shogun-rainbow" 
+                 data-text="Rainbow colored text"
+                 data-animation="fade">
+                <span class="slogan-text">Rainbow colored text</span>
+            </div>
+        </div>
+        
+        <h3>5. Fire Effect</h3>
+        <div class="test-demo" style="background: #1a1a1a;">
+            <div class="shogun-slogan shogun-fire" 
+                 data-text="Blazing hot text!"
+                 data-animation="fade">
+                <span class="slogan-text">Blazing hot text!</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2><span class="status-indicator status-success"></span>Terminal & Matrix Styles</h2>
+        
+        <h3>1. Terminal Style</h3>
+        <div class="test-demo">
+            <div class="shogun-slogan shogun-terminal" 
+                 data-text="Terminal command executed"
+                 data-animation="fade">
+                <span class="slogan-text">Terminal command executed</span>
+            </div>
+        </div>
+        
+        <h3>2. Matrix Style</h3>
+        <div class="test-demo">
+            <div class="shogun-slogan shogun-matrix" 
+                 data-text="The Matrix has you..."
+                 data-animation="fade">
+                <span class="slogan-text">The Matrix has you...</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2><span class="status-indicator status-success"></span>WordPress Shortcode Examples</h2>
+        
+        <p>These are the exact shortcodes you can copy and paste into WordPress:</p>
+        
+        <h3>Basic Shortcodes</h3>
+        <div class="test-code">
+[typewriter_text text="Hello World!" speed="100" cursor="|"]
+[shogun_slogan text="Your amazing slogan" style="typewriter" speed="80"]
+[animated_text text="Fade in text" animation="fade" speed="1000"]
+        </div>
+        
+        <h3>REIA Specific Shortcodes</h3>
+        <div class="test-code">
+<!-- Main REIA Slogan -->
+[typewriter_text text="I will help you make The Smart Move - I guarantee it!" speed="80" cursor="|"]
+
+<!-- Attribution Line -->
+[typewriter_text text="- Mikko Jetsu, REIA" speed="100" cursor="★" delay="2000"]
+
+<!-- Call to Action -->
+[shogun_slogan text="Join REIA today and make your Smart Move!" style="handwritten" animation="bounce"]
+        </div>
+        
+        <h3>Advanced Styling Examples</h3>
+        <div class="test-code">
+<!-- Gradient effect -->
+[shogun_slogan text="Premium real estate services" style="gradient" animation="fade"]
+
+<!-- Neon effect for modern designs -->
+[shogun_slogan text="Future of real estate" style="neon" animation="slide"]
+
+<!-- Professional terminal look -->
+[shogun_slogan text="Data-driven decisions" style="terminal" animation="typewriter"]
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2><span class="status-indicator status-warning"></span>Accessibility & Performance</h2>
+        
+        <h3>Reduced Motion Test</h3>
+        <div class="test-demo">
+            <p>🎯 The plugin automatically respects the user's "reduced motion" preference.</p>
+            <p>📱 To test: Enable "Reduce Motion" in your OS accessibility settings.</p>
+            <p>✅ Result: Animations will be disabled and text will appear immediately.</p>
+        </div>
+        
+        <h3>Performance Features</h3>
+        <div class="debug-info">
+            <div>🚀 Intersection Observer: Animations only start when visible</div>
+            <div>⚡ Lazy Loading: Assets load only when needed</div>
+            <div>🧠 Memory Management: Automatic cleanup prevents memory leaks</div>
+            <div>📱 Responsive: All animations work on mobile devices</div>
+            <div>🎨 Modern CSS: Hardware acceleration for smooth performance</div>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2><span class="status-indicator status-success"></span>Integration Test Results</h2>
+        
+        <div id="integration-results">
+            <div>🔍 Running integration tests...</div>
+        </div>
+    </div>
+
+    <!-- Load the final JavaScript -->
+    <script>
+        // Simulate WordPress configuration
+        window.shogunSlogansConfig = {
+            options: {
+                defaultSpeed: 100,
+                defaultCursor: '|',
+                defaultLoop: false,
+                enableAccessibility: true,
+                enablePerformanceOptimization: true,
+                debugMode: true
+            },
+            strings: {
+                loading: 'Loading...',
+                error: 'Error loading content',
+                pauseAnimation: 'Pause animation',
+                resumeAnimation: 'Resume animation'
+            },
+            ajax: {
+                url: '/wp-admin/admin-ajax.php',
+                nonce: 'test-nonce'
+            },
+            rest: {
+                url: '/wp-json/shogun-slogans/v1/',
+                nonce: 'test-rest-nonce'
+            }
+        };
+    </script>
+    <script src="assets/js/slogans-final.js"></script>
+    
+    <script>
+        // Test functions
+        function runDiagnostics() {
+            const info = document.getElementById('debug-info');
+            const results = [];
+            
+            // Check jQuery
+            results.push(`💎 jQuery: ${typeof $ !== 'undefined' ? '✅ Loaded' : '❌ Missing'}`);
+            
+            // Check ShogunSlogans API
+            results.push(`🗾 ShogunSlogans API: ${typeof window.ShogunSlogans !== 'undefined' ? '✅ Available' : '❌ Missing'}`);
+            
+            // Check animations
+            const animations = window.ShogunSlogans ? window.ShogunSlogans.getAnimations() : [];
+            results.push(`🎬 Active Animations: ${animations.length}`);
+            
+            // Check config
+            const config = window.ShogunSlogans ? window.ShogunSlogans.getConfig() : {};
+            results.push(`⚙️ Debug Mode: ${config.options?.debugMode ? '✅ Enabled' : '❌ Disabled'}`);
+            
+            // Check accessibility
+            const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            results.push(`♿ Reduced Motion: ${prefersReduced ? '🔘 Enabled' : '⚪ Disabled'}`);
+            
+            // Check performance features
+            const hasIntersectionObserver = typeof IntersectionObserver !== 'undefined';
+            results.push(`👁️ Intersection Observer: ${hasIntersectionObserver ? '✅ Supported' : '❌ Not supported'}`);
+            
+            // Check browser support
+            const hasES6 = typeof Promise !== 'undefined';
+            results.push(`🌐 ES6 Support: ${hasES6 ? '✅ Yes' : '❌ No'}`);
+            
+            info.innerHTML = results.join('<br>');
+        }
+        
+        function testAllAnimations() {
+            if (window.ShogunSlogans) {
+                window.ShogunSlogans.init();
+                console.log('🎬 All animations reinitialized');
+            }
+        }
+        
+        function pauseAllAnimations() {
+            if (window.ShogunSlogans) {
+                window.ShogunSlogans.pauseAll();
+                console.log('⏸️ All animations paused');
+            }
+        }
+        
+        function resumeAllAnimations() {
+            if (window.ShogunSlogans) {
+                window.ShogunSlogans.resumeAll();
+                console.log('▶️ All animations resumed');
+            }
+        }
+        
+        // Run integration tests
+        function runIntegrationTests() {
+            const results = document.getElementById('integration-results');
+            const tests = [];
+            
+            // Test 1: Basic functionality
+            tests.push('🧪 Basic Functionality: ' + (typeof window.ShogunSlogans !== 'undefined' ? '✅ PASS' : '❌ FAIL'));
+            
+            // Test 2: Animation creation
+            const testElement = document.createElement('div');
+            testElement.className = 'shogun-typewriter';
+            testElement.setAttribute('data-text', 'test');
+            const animation = window.ShogunSlogans ? window.ShogunSlogans.createAnimation(testElement) : null;
+            tests.push('🎭 Animation Creation: ' + (animation ? '✅ PASS' : '❌ FAIL'));
+            
+            // Test 3: Event system
+            let eventFired = false;
+            if (window.ShogunSlogans) {
+                window.ShogunSlogans.on('test', () => { eventFired = true; });
+                document.dispatchEvent(new CustomEvent('shogun:test'));
+            }
+            tests.push('📡 Event System: ' + (eventFired ? '✅ PASS' : '❌ FAIL'));
+            
+            // Test 4: Error handling
+            let errorHandled = false;
+            try {
+                window.ShogunSlogans.safeExecute(() => { throw new Error('test'); }, 'test');
+                errorHandled = true;
+            } catch (e) {
+                // Should not throw
+            }
+            tests.push('🛡️ Error Handling: ' + (errorHandled ? '✅ PASS' : '❌ FAIL'));
+            
+            // Test 5: Configuration
+            const config = window.ShogunSlogans ? window.ShogunSlogans.getConfig() : null;
+            tests.push('⚙️ Configuration: ' + (config && config.options ? '✅ PASS' : '❌ FAIL'));
+            
+            results.innerHTML = tests.join('<br>');
+        }
+        
+        // Auto-run diagnostics when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                runDiagnostics();
+                runIntegrationTests();
+            }, 1000);
+        });
+        
+        // Listen for Shogun Slogans initialization
+        document.addEventListener('shogun:initialized', function(e) {
+            console.log('🎉 Shogun Slogans initialized:', e.detail);
+            setTimeout(runDiagnostics, 500);
+        });
+        
+        // Listen for animation completions
+        document.addEventListener('shogun:typewriter:complete', function(e) {
+            console.log('✅ Typewriter completed:', e.detail.text);
+        });
+        
+        document.addEventListener('shogun:slogan:complete', function(e) {
+            console.log('✅ Slogan completed:', e.detail.text);
+        });
+    </script>
+    
+</body>
+</html>

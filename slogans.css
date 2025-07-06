@@ -1,0 +1,479 @@
+/* CSS Custom Properties for consistent theming */
+:root {
+    --primary: #002D5F;
+    --accent: #0073e6;
+}
+
+/* Slogan Styles - Extracted and Updated with CSS Variables */
+
+/* Base Slogan Styles */
+.wp-block-html .company-slogan {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.wp-block-html + .wp-block-html .company-slogan {
+    margin-top: 2rem;
+}
+
+.company-slogan,
+.smart-move-slogan,
+[data-slogan*="Smart Move"] {
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--primary);
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+/* Gradient Animated Slogan */
+.slogan-gradient {
+    background: linear-gradient(45deg, var(--primary), var(--accent), #ff6b35, var(--primary));
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 4s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(0, 45, 95, 0.3);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 700;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Highlighted Card Slogan */
+.slogan-highlighted {
+    background: linear-gradient(135deg, #fff9e6, #fffbe7);
+    border: 3px solid var(--accent);
+    border-radius: 12px;
+    padding: clamp(1rem, 3vw, 2rem);
+    box-shadow: 0 4px 20px rgba(0, 45, 95, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    position: relative;
+    overflow: hidden;
+    transform: perspective(1000px) rotateX(2deg);
+    transition: transform 0.3s ease;
+}
+
+.slogan-highlighted:hover {
+    transform: perspective(1000px) rotateX(0deg) scale(1.02);
+}
+
+.slogan-highlighted::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(0, 115, 230, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+
+/* Handwritten Style Slogan */
+.slogan-handwritten {
+    font-family: "Caveat", "Dancing Script", cursive;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    color: #2c3e50;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    transform: rotate(-1deg);
+    letter-spacing: 0.02em;
+    position: relative;
+}
+
+.slogan-handwritten::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    border-radius: 2px;
+    opacity: 0.7;
+}
+
+/* Emphasis Slogan with Smart Move highlighting */
+.slogan-emphasis {
+    font-size: clamp(1.3rem, 3.5vw, 2.2rem);
+    color: #333;
+}
+
+.slogan-emphasis .smart-move {
+    color: var(--accent);
+    font-weight: 800;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, var(--accent), #005bb5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(0, 115, 230, 0.3);
+    position: relative;
+}
+
+.slogan-emphasis .smart-move::after {
+    content: "™";
+    position: absolute;
+    top: -0.5em;
+    right: -0.8em;
+    font-size: 0.4em;
+    color: var(--accent);
+    font-weight: 400;
+}
+
+.slogan-emphasis .guarantee {
+    color: var(--primary);
+    font-weight: 700;
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-color: #ff6b35;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+/* Card Style Slogan */
+.slogan-card {
+    background: linear-gradient(135deg, #f8f9fa, #fff);
+    border-radius: 20px;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    box-shadow: 0 10px 30px rgba(0, 45, 95, 0.08), 0 1px 8px rgba(0, 45, 95, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 115, 230, 0.1);
+    position: relative;
+    backdrop-filter: blur(10px);
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.slogan-card::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-size: 4rem;
+    color: var(--accent);
+    opacity: 0.3;
+    font-family: Georgia, serif;
+}
+
+.slogan-card::after {
+    content: '"';
+    position: absolute;
+    bottom: -30px;
+    right: 20px;
+    font-size: 4rem;
+    color: var(--accent);
+    opacity: 0.3;
+    font-family: Georgia, serif;
+}
+
+.slogan-card.no-quotes::before,
+.slogan-card.no-quotes::after {
+    display: none;
+}
+
+/* Typewriter Effect Slogan */
+.slogan-typewriter {
+    font-family: "Courier New", monospace;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    border-right: 3px solid var(--accent);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typewriter 4s steps(50, end), blinkCursor 1s step-end infinite;
+    max-width: fit-content;
+    margin: 2rem auto;
+}
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blinkCursor {
+    0%, 50% {
+        border-color: var(--accent);
+    }
+    51%, 100% {
+        border-color: transparent;
+    }
+}
+
+/* 3D Effect Slogan */
+.slogan-3d {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: var(--primary);
+    text-shadow: 1px 1px 0 var(--accent), 2px 2px 0 var(--accent), 3px 3px 0 var(--accent), 4px 4px 0 var(--accent), 5px 5px 10px rgba(0, 45, 95, 0.3);
+    transform: perspective(1000px) rotateX(15deg);
+    letter-spacing: 0.02em;
+}
+
+/* Advanced Typewriter Effect with JavaScript Control */
+.slogan-typewriter-js {
+    font-family: "Courier New", monospace;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    border-right: 3px solid var(--accent);
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: fit-content;
+    margin: 2rem auto;
+    color: var(--primary);
+    position: relative;
+}
+
+.slogan-typewriter-js.typing {
+    animation: blinkCursor 1s step-end infinite;
+}
+
+.slogan-typewriter-js.paused {
+    animation: blinkCursor 1s step-end infinite;
+}
+
+.slogan-typewriter-js.deleting {
+    animation: blinkCursor 0.5s step-end infinite;
+}
+
+.slogan-typewriter-js.finished {
+    border-right: none;
+}
+
+/* Typewriter with different cursor styles */
+.slogan-typewriter-js.cursor-block {
+    border-right: none;
+    position: relative;
+}
+
+.slogan-typewriter-js.cursor-block::after {
+    content: "█";
+    color: var(--accent);
+    animation: blinkCursor 1s step-end infinite;
+}
+
+.slogan-typewriter-js.cursor-underline {
+    border-right: none;
+    position: relative;
+}
+
+.slogan-typewriter-js.cursor-underline::after {
+    content: "_";
+    color: var(--accent);
+    animation: blinkCursor 1s step-end infinite;
+}
+
+/* Multi-line typewriter support */
+.slogan-typewriter-multiline {
+    font-family: "Courier New", monospace;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--primary);
+    white-space: pre-wrap;
+    position: relative;
+    max-width: 100%;
+    margin: 2rem auto;
+}
+
+.slogan-typewriter-multiline .cursor {
+    color: var(--accent);
+    font-weight: bold;
+    animation: blinkCursor 1s step-end infinite;
+}
+
+/* Smart Move branded typewriter */
+.slogan-typewriter-smart-move {
+    font-family: "Courier New", monospace;
+    font-size: clamp(1.3rem, 3.5vw, 2rem);
+    color: var(--primary);
+    text-align: center;
+    margin: 2rem auto;
+    position: relative;
+}
+
+.slogan-typewriter-smart-move .smart-move {
+    color: var(--accent);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.slogan-typewriter-smart-move .cursor {
+    color: var(--accent);
+    animation: blinkCursor 1s step-end infinite;
+}
+
+/* Company Quotes Styles */
+.company-quote {
+    margin: 2rem 0;
+    padding: 0;
+    border: none;
+}
+
+.company-quote.quote-simple {
+    border-left: 4px solid var(--accent);
+    padding-left: 1.5rem;
+    font-style: italic;
+    color: #555;
+}
+
+.company-quote.quote-card {
+    background: linear-gradient(135deg, #f8f9fa, #fff);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 25px rgba(0, 45, 95, 0.1);
+    border: 1px solid rgba(0, 115, 230, 0.1);
+    position: relative;
+}
+
+.company-quote.quote-card::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    font-size: 3rem;
+    color: var(--accent);
+    opacity: 0.4;
+    font-family: Georgia, serif;
+}
+
+.company-quote.quote-emphasis {
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(0, 115, 230, 0.05), rgba(0, 45, 95, 0.02));
+}
+
+.company-quote p {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+    color: var(--primary);
+}
+
+.company-quote cite {
+    display: block;
+    text-align: right;
+    font-style: normal;
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 0.9em;
+    margin-top: 1rem;
+}
+
+.company-quote cite::before {
+    content: "— ";
+}
+
+.company-quote cite .company {
+    font-weight: 400;
+    color: #666;
+}
+
+/* Utility Classes */
+.slogan-center {
+    text-align: center;
+}
+
+.slogan-left {
+    text-align: left;
+}
+
+.slogan-right {
+    text-align: right;
+}
+
+.slogan-large {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+}
+
+.slogan-small {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.slogan-bold {
+    font-weight: 700;
+}
+
+.slogan-italic {
+    font-style: italic;
+}
+
+.slogan-uppercase {
+    text-transform: uppercase;
+}
+
+.slogan-lowercase {
+    text-transform: lowercase;
+}
+
+.slogan-capitalize {
+    text-transform: capitalize;
+}
+
+.slogan-letter-spacing {
+    letter-spacing: 0.05em;
+}
+
+.slogan-line-height {
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .slogan-card,
+    .company-quote.quote-card {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .slogan-3d {
+        transform: perspective(1000px) rotateX(5deg);
+    }
+    
+    .slogan-handwritten {
+        transform: rotate(-0.5deg);
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .slogan-gradient,
+    .slogan-highlighted::before,
+    .slogan-typewriter,
+    .slogan-typewriter-js,
+    .slogan-typewriter-js::after,
+    .slogan-typewriter-multiline .cursor,
+    .slogan-typewriter-smart-move .cursor {
+        animation: none;
+    }
+    
+    .slogan-highlighted {
+        transform: none;
+    }
+    
+    .slogan-3d {
+        transform: none;
+        text-shadow: 2px 2px 4px rgba(0, 45, 95, 0.3);
+    }
+    
+    .slogan-handwritten {
+        transform: none;
+    }
+}

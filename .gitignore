@@ -1,0 +1,94 @@
+# WordPress
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+wp-content/debug.log
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+wp-content/blogs.dir/
+wp-content/upgrade/
+wp-content/backup-db/
+wp-content/backups/
+wp-content/blogs.dir/
+wp-content/w3tc-config/
+
+# WordPress Plugin Development
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE/Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.sublime-project
+.sublime-workspace
+
+# Node.js (if using build tools)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Build files
+dist/
+build/
+*.min.css
+*.min.js
+
+# Local development
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Cache
+.cache/
+
+# PHP
+composer.phar
+vendor/
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Test files (keep our specific test files)
+# test-*.html files are kept for plugin testing
+# comprehensive-test.html is kept for plugin testing
+# wordpress-shortcodes-ready.html is kept for plugin testing
+
+# Eva Icons (third party - excluded from repo)
+assets/eva-icons/
+
+# Local Sites (if using Local by Flywheel)
+Local\ Sites/
+
+# WordPress debug
+debug.log
+error_log

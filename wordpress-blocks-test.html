@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordPress Custom HTML Blocks - Ready to Copy</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .block-section {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .block-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .copy-area {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 13px;
+            overflow-x: auto;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .copy-area:hover {
+            background: #e9ecef;
+        }
+        
+        .copy-instruction {
+            background: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        
+        .quick-guide {
+            background: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        /* REIA Specific Styles */
+        .reia-showcase {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .reia-showcase h2 {
+            color: white;
+            border-bottom: 2px solid white;
+            padding-bottom: 10px;
+        }
+
+        .reia-showcase p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .handwritten-quote {
+            font-family: 'Dancing Script', 'Caveat', cursive;
+            font-size: 28px;
+            color: #1e40af;
+            line-height: 1.4;
+            text-align: center;
+            padding: 30px;
+            background: #f8fafc;
+            border-left: 5px solid #3b82f6;
+            margin: 10px 0;
+        }
+
+        .quill-style {
+            background: linear-gradient(135deg, #fef3c7 0%, #f3e8ff 100%);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin: 10px 0;
+        }
+
+        .fountain-pen {
+            background: #1e293b;
+            color: #f1f5f9;
+            padding: 35px;
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .fountain-pen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"&gt;&lt;circle cx="50" cy="50" r="40" fill="none" stroke="%23334155" stroke-width="0.5" opacity="0.3"/&gt;&lt;/svg&gt;') center/100px;
+            opacity: 0.1;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #1e40af 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"&gt;&lt;path d="M20 20h60v60H20z" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/&gt;&lt;path d="M30 30h40v40H30z" fill="none" stroke="%23ffffff" stroke-width="0.3" opacity="0.1"/&gt;&lt;/svg&gt;') center/150px;
+        }
+
+        .statistics-style {
+            background: #f9fafb;
+            border: 1px solid #d1d5db;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 10px 0;
+        }
+
+        .statistics-style h3 {
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+
+        .statistics-style .shogun-typewriter {
+            font-size: 18px;
+            color: #059669;
+            font-weight: 600;
+            text-align: center;
+            font-family: 'Georgia', serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 WordPress Custom HTML Blocks - Ready to Copy</h1>
+    
+    <!-- REIA Specific Showcase Section -->
+    <div class="block-section reia-showcase">
+        <h2>🏠 REIA Smart Move Showcase</h2>
+        <p>Ready-to-use animated slogans for REIA's staging site</p>
+    </div>
+
+    <div class="block-section">
+        <h3 class="block-title">🎯 REIA Classic Typewriter</h3>
+        <div class="copy-instruction">Professional typewriter effect for REIA homepage:</div>
+        <div class="copy-area" onclick="selectText(this)">
+&lt;div class="shogun-typewriter" 
+     data-text="Smart Move - REIA (Real Estate Investment Association)"
+     data-speed="80"
+     data-cursor="|"
+     data-loop="true"
+     style="font-size: 24px; color: #1e3a8a; font-weight: 600; text-align: center; padding: 20px;"&gt;
+    &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+    &lt;span class="typewriter-cursor"&gt;|&lt;/span&gt;
+&lt;/div&gt;
+        </div>
+    </div>
+
+    <div class="block-section">
+        <h3 class="block-title">✍️ REIA Handwritten Quote Style</h3>
+        <div class="copy-instruction">Elegant handwritten style with proper citation:</div>
+        <div class="copy-area" onclick="selectText(this)">
+&lt;div class="shogun-handwritten-quote" style="text-align: center; padding: 30px; background: #f8fafc; border-left: 5px solid #3b82f6; font-family: 'Dancing Script', 'Caveat', cursive; font-size: 28px; color: #1e40af; line-height: 1.4;"&gt;
+    &lt;div class="shogun-typewriter handwritten-style" 
+         data-text="&amp;quot;Smart Move&amp;quot;"
+         data-speed="120"
+         data-cursor="✒️"
+         data-loop="true"
+         style="margin-bottom: 15px;"&gt;
+        &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+        &lt;span class="typewriter-cursor"&gt;✒️&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div style="font-size: 16px; color: #64748b; font-family: 'Georgia', serif; font-style: italic; margin-top: 15px;"&gt;
+        — Mikko Jetsu, CEO/Chief Broker
+    &lt;/div&gt;
+&lt;/div&gt;
+        </div>
+    </div>
+
+    <div class="block-section">
+        <h3 class="block-title">🖋️ REIA Shakespearean Quill Style</h3>
+        <div class="copy-instruction">Elegant quill pen effect for premium feel:</div>
+        <div class="copy-area" onclick="selectText(this)">
+&lt;div class="shogun-quill-style" style="background: linear-gradient(135deg, #fef3c7 0%, #f3e8ff 100%); padding: 40px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.1);"&gt;
+    &lt;div class="shogun-typewriter quill-effect" 
+         data-text="Smart Move - Where Real Estate Dreams Begin"
+         data-speed="90"
+         data-cursor="🖋️"
+         data-loop="true"
+         style="font-family: 'Times New Roman', serif; font-size: 26px; color: #7c2d12; font-weight: 500; letter-spacing: 1px;"&gt;
+        &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+        &lt;span class="typewriter-cursor"&gt;🖋️&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div style="margin-top: 20px; font-style: italic; color: #a16207; font-size: 14px;"&gt;
+        REIA - Real Estate Investment Association
+    &lt;/div&gt;
+&lt;/div&gt;
+        </div>
+    </div>
+
+    <div class="block-section">
+        <h3 class="block-title">✨ REIA Spencerian Fountain Pen</h3>
+        <div class="copy-instruction">Luxury fountain pen script for executive pages:</div>
+        <div class="copy-area" onclick="selectText(this)">
+&lt;div class="shogun-fountain-pen" style="background: #1e293b; color: #f1f5f9; padding: 35px; border-radius: 12px; text-align: center; position: relative; overflow: hidden;"&gt;
+    &lt;div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"&gt;&lt;circle cx="50" cy="50" r="40" fill="none" stroke="%23334155" stroke-width="0.5" opacity="0.3"/&gt;&lt;/svg&gt;') center/100px; opacity: 0.1;"&gt;&lt;/div&gt;
+    &lt;div class="shogun-typewriter spencerian-script" 
+         data-text="Smart Move: Investing in Your Future"
+         data-speed="110"
+         data-cursor="🖋️"
+         data-loop="true"
+         style="font-family: 'Tangerine', 'Dancing Script', cursive; font-size: 32px; color: #e2e8f0; font-weight: 700; position: relative; z-index: 1;"&gt;
+        &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+        &lt;span class="typewriter-cursor"&gt;🖋️&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div style="margin-top: 15px; font-size: 14px; color: #94a3b8; position: relative; z-index: 1;"&gt;
+        REIA - Real Estate Investment Association
+    &lt;/div&gt;
+&lt;/div&gt;
+        </div>
+    </div>
+
+    <div class="block-section">
+        <h3 class="block-title">🏡 REIA Hero Banner Style</h3>
+        <div class="copy-instruction">Full hero section for REIA homepage:</div>
+        <div class="copy-area" onclick="selectText(this)">
+&lt;div style="background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #1e40af 100%); color: white; padding: 60px 20px; text-align: center; border-radius: 20px; position: relative; overflow: hidden;"&gt;
+    &lt;div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"&gt;&lt;path d="M20 20h60v60H20z" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/&gt;&lt;path d="M30 30h40v40H30z" fill="none" stroke="%23ffffff" stroke-width="0.3" opacity="0.1"/&gt;&lt;/svg&gt;') center/150px;"&gt;&lt;/div&gt;
+    &lt;h1 style="color: white; margin-bottom: 30px; font-size: 36px; position: relative; z-index: 1;"&gt;Welcome to REIA&lt;/h1&gt;
+    &lt;div class="shogun-typewriter" 
+         data-text="Smart Move - Your Gateway to Real Estate Investment Success"
+         data-speed="70"
+         data-cursor="▌"
+         data-loop="true"
+         style="font-size: 28px; color: #fbbf24; font-weight: 400; margin-bottom: 20px; position: relative; z-index: 1;"&gt;
+        &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+        &lt;span class="typewriter-cursor"&gt;▌&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;p style="font-size: 18px; opacity: 0.9; margin-top: 20px; position: relative; z-index: 1;"&gt;Join the Real Estate Investment Association today&lt;/p&gt;
+&lt;/div&gt;
+        </div>
+    </div>
+
+    <div class="block-section">
+        <h3 class="block-title">💼 REIA Executive Quote</h3>
+        <div class="copy-instruction">Professional executive quote style:</div>
+        <div class="copy-area" onclick="selectText(this)">
+&lt;div style="background: white; border: 2px solid #e5e7eb; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"&gt;
+    &lt;div class="shogun-typewriter" 
+         data-text="&amp;quot;Smart Move represents our commitment to empowering real estate investors with knowledge, connections, and opportunities.&amp;quot;"
+         data-speed="60"
+         data-cursor="❘"
+         data-loop="true"
+         style="font-size: 20px; color: #374151; line-height: 1.6; font-style: italic; text-align: center;"&gt;
+        &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+        &lt;span class="typewriter-cursor"&gt;❘&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div style="text-align: center; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e5e7eb;"&gt;
+        &lt;strong style="color: #1e40af; font-size: 16px;"&gt;Mikko Jetsu&lt;/strong&gt;&lt;br&gt;
+        &lt;span style="color: #6b7280; font-size: 14px;"&gt;CEO/Chief Broker, REIA&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </div>
+    </div>
+
+    <div class="block-section">
+        <h3 class="block-title">🎨 REIA Modern Gradient</h3>
+        <div class="copy-instruction">Modern gradient style for contemporary pages:</div>
+        <div class="copy-area" onclick="selectText(this)">
+&lt;div style="background: linear-gradient(45deg, #06b6d4, #3b82f6, #8b5cf6); padding: 40px; border-radius: 20px; text-align: center; color: white;"&gt;
+    &lt;div class="shogun-typewriter" 
+         data-text="Smart Move: Innovative Real Estate Solutions"
+         data-speed="85"
+         data-cursor="💎"
+         data-loop="true"
+         style="font-size: 26px; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"&gt;
+        &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+        &lt;span class="typewriter-cursor"&gt;💎&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div style="margin-top: 15px; font-size: 16px; opacity: 0.9;"&gt;
+        REIA - Leading the Future of Real Estate Investment
+    &lt;/div&gt;
+&lt;/div&gt;
+        </div>
+    </div>
+
+    <div class="block-section">
+        <h3 class="block-title">📊 REIA Statistics Style</h3>
+        <div class="copy-instruction">Data-focused style for statistics and achievements:</div>
+        <div class="copy-area" onclick="selectText(this)">
+&lt;div style="background: #f9fafb; border: 1px solid #d1d5db; padding: 30px; border-radius: 12px;"&gt;
+    &lt;div style="text-align: center; margin-bottom: 20px;"&gt;
+        &lt;h3 style="color: #1f2937; margin-bottom: 10px;"&gt;REIA Success Metrics&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;div class="shogun-typewriter" 
+         data-text="Smart Move: 10,000+ Members | $2B+ Investments Facilitated | 15 Years Experience"
+         data-speed="50"
+         data-cursor="📈"
+         data-loop="true"
+         style="font-size: 18px; color: #059669; font-weight: 600; text-align: center; font-family: 'Georgia', serif;"&gt;
+        &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+        &lt;span class="typewriter-cursor"&gt;📈&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </div>
+    </div>
+
+    <div class="quick-guide">
+        <strong>🏠 REIA Customization Tips:</strong><br>
+        • Replace "Smart Move" with your specific campaign slogan<br>
+        • Update "Mikko Jetsu, CEO/Chief Broker" with current leadership<br>
+        • Modify REIA colors to match your brand guidelines<br>
+        • Add your logo URL to background images<br><br>
+        
+        <strong>How to Use in WordPress:</strong><br>
+        1. Click any code block above to select it<br>
+        2. Copy the code (Ctrl+C or Cmd+C)<br>
+        3. In WordPress editor, add a "Custom HTML" block<br>
+        4. Paste the code into the Custom HTML block<br>
+        5. Preview or publish to see the typewriter effect!<br><br>
+        
+        <strong>Customization Options:</strong><br>
+        • <code>data-text</code> - Change the text<br>
+        • <code>data-speed</code> - Typing speed (30=fast, 200=slow)<br>
+        • <code>data-cursor</code> - Cursor character (|, ▌, ✒️, 🖋️, 💎, 📈)<br>
+        • <code>data-loop</code> - "true" for loop, "false" for once<br>
+        • <code>style</code> - Add custom CSS styling<br><br>
+        
+        <strong>💡 Pro Tips for REIA:</strong><br>
+        • Use handwritten styles for testimonials and quotes<br>
+        • Apply hero banner style for main landing pages<br>
+        • Statistics style works great for achievement sections<br>
+        • Fountain pen style adds luxury feel to executive pages
+    </div>
+
+    <script>
+        function selectText(element) {
+            const range = document.createRange();
+            range.selectNodeContents(element);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }
+    </script>
+</body>
+</html>

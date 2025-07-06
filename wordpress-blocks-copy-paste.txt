@@ -1,0 +1,179 @@
+SHOGUN SLOGANS - WORDPRESS BLOCK SNIPPETS
+==========================================
+
+Copy and paste these snippets directly into WordPress editor - they will auto-convert to blocks!
+
+📝 BASIC TYPEWRITER (Shortcode Block)
+-------------------------------------
+<!-- wp:shortcode -->
+[typewriter_text text="Hello! This is working in WordPress!" speed="100"]
+<!-- /wp:shortcode -->
+
+⚡ FAST TYPING (Shortcode Block)
+-------------------------------
+<!-- wp:shortcode -->
+[typewriter_text text="Super fast typing in WordPress!" speed="30" cursor="▌"]
+<!-- /wp:shortcode -->
+
+🐌 SLOW DRAMATIC (Shortcode Block)
+----------------------------------
+<!-- wp:shortcode -->
+[typewriter_text text="Slow... dramatic... WordPress... effect..." speed="200" cursor="_"]
+<!-- /wp:shortcode -->
+
+💻 CODE STYLE (Custom HTML Block)
+---------------------------------
+<!-- wp:html -->
+<div class="shogun-typewriter" 
+     data-text="console.log('WordPress typewriter works!');"
+     data-speed="60"
+     data-cursor="█"
+     data-loop="true"
+     style="font-family: monospace; background: #2c3e50; color: #2ecc71; padding: 15px; border-radius: 5px;">
+    <span class="typewriter-text"></span>
+    <span class="typewriter-cursor">█</span>
+</div>
+<!-- /wp:html -->
+
+🔄 NO LOOP (Shortcode Block)
+----------------------------
+<!-- wp:shortcode -->
+[typewriter_text text="This types once and stops in WordPress." speed="80" loop="false"]
+<!-- /wp:shortcode -->
+
+💬 QUOTE STYLE (Custom HTML Block)
+----------------------------------
+<!-- wp:html -->
+<div class="shogun-typewriter" 
+     data-text="&quot;The future belongs to those who believe in the beauty of their dreams.&quot; - Eleanor Roosevelt"
+     data-speed="70"
+     data-cursor="❘"
+     data-loop="true"
+     style="font-style: italic; text-align: center; font-size: 18px; color: #34495e;">
+    <span class="typewriter-text"></span>
+    <span class="typewriter-cursor">❘</span>
+</div>
+<!-- /wp:html -->
+
+📱 MOBILE FRIENDLY (Shortcode Block)
+------------------------------------
+<!-- wp:shortcode -->
+[typewriter_text text="Mobile responsive typewriter for WordPress!" speed="90" cursor="❘"]
+<!-- /wp:shortcode -->
+
+🌈 COLORFUL & STYLED (Custom HTML Block)
+----------------------------------------
+<!-- wp:html -->
+<div class="shogun-typewriter" 
+     data-text="Colorful typewriter effect with custom styling!"
+     data-speed="80"
+     data-cursor="▌"
+     data-loop="true"
+     style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 10px; text-align: center; font-size: 18px; font-weight: bold;">
+    <span class="typewriter-text"></span>
+    <span class="typewriter-cursor">▌</span>
+</div>
+<!-- /wp:html -->
+
+⏰ WITH DELAY (Shortcode Block)
+------------------------------
+<!-- wp:shortcode -->
+[typewriter_text text="This text appears after a 3-second delay!" speed="100" delay="3000"]
+<!-- /wp:shortcode -->
+
+🚀 HERO SECTION (Group Block with HTML)
+---------------------------------------
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"10px"}},"backgroundColor":"light-gray","layout":{"type":"constrained"}} -->
+<div class="wp-block-group has-light-gray-background-color has-background" style="border-radius:10px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
+<!-- wp:heading {"textAlign":"center","style":{"color":{"text":"#2c3e50"}}} -->
+<h2 class="wp-block-heading has-text-align-center" style="color:#2c3e50">Welcome to Our Website</h2>
+<!-- /wp:heading -->
+
+<!-- wp:html -->
+<div class="shogun-typewriter" 
+     data-text="We create amazing digital experiences that inspire and engage..."
+     data-speed="60"
+     data-cursor="▌"
+     data-loop="true"
+     style="font-size: 24px; color: #3498db; font-weight: 300; text-align: center;">
+    <span class="typewriter-text"></span>
+    <span class="typewriter-cursor">▌</span>
+</div>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
+
+🎯 CALL TO ACTION (Group Block)
+-------------------------------
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"radius":"8px"}},"backgroundColor":"primary","textColor":"white","layout":{"type":"constrained"}} -->
+<div class="wp-block-group has-white-color has-primary-background-color has-text-color has-background" style="border-radius:8px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+<!-- wp:shortcode -->
+[typewriter_text text="Ready to get started? Join thousands of satisfied customers today!" speed="60" cursor="▌"]
+<!-- /wp:shortcode -->
+</div>
+<!-- /wp:group -->
+
+📊 TESTIMONIAL QUOTE (Quote Block with Typewriter)
+--------------------------------------------------
+<!-- wp:quote {"style":{"border":{"radius":"8px"},"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}}} -->
+<blockquote class="wp-block-quote" style="border-radius:8px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+<!-- wp:html -->
+<div class="shogun-typewriter" 
+     data-text="This plugin transformed our website with amazing typewriter effects!"
+     data-speed="80"
+     data-cursor="|"
+     data-loop="true"
+     style="font-size: 18px; font-style: italic;">
+    <span class="typewriter-text"></span>
+    <span class="typewriter-cursor">|</span>
+</div>
+<!-- /wp:html -->
+<cite>— Happy Customer</cite>
+</blockquote>
+<!-- /wp:quote -->
+
+⭐ SIMPLE SHORTCODES (Just Copy These)
+=====================================
+[typewriter_text text="Hello World!"]
+
+[typewriter_text text="Fast typing!" speed="50"]
+
+[typewriter_text text="Slow typing..." speed="200"]
+
+[typewriter_text text="Custom cursor!" cursor="▌"]
+
+[typewriter_text text="Types once only" loop="false"]
+
+[typewriter_text text="Delayed start" delay="2000"]
+
+[shogun_slogan text="Amazing slogan here!" style="fade"]
+
+HOW TO USE:
+===========
+1. Copy any block snippet above (including the <!-- wp: --> comments)
+2. In WordPress editor, paste directly into the content area
+3. WordPress will automatically convert to the proper blocks!
+4. Preview or publish to see the typewriter effect!
+
+ALTERNATIVE METHOD:
+==================
+- Copy just the shortcode (e.g., [typewriter_text text="Hello!"])
+- Add a "Shortcode" block manually in WordPress
+- Paste the shortcode into the block
+
+CUSTOMIZATION OPTIONS:
+=====================
+- text: The text to type out
+- speed: Typing speed (30=fast, 100=normal, 200=slow)
+- cursor: Cursor character (|, _, ▌, █, ❘, etc.)
+- loop: "true" for continuous, "false" for once
+- delay: Delay before starting (milliseconds)
+- style: CSS styling for HTML blocks
+
+TIPS:
+=====
+- Make sure Shogun Slogans plugin is activated
+- Test with shortcodes first - they're easier to troubleshoot
+- Use HTML blocks for advanced styling
+- Preview changes before publishing
+- Keep mobile users in mind (readable font sizes)

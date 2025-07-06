@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shogun Slogans - Test Showcase</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #f8f9fa;
+        }
+        
+        .showcase-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .showcase-title {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .demo-container {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        /* Include the typewriter styles */
+        .shogun-typewriter {
+            font-family: 'Courier New', monospace;
+            position: relative;
+            display: inline-block;
+            min-height: 1.2em;
+            line-height: 1.4;
+        }
+
+        .typewriter-text {
+            display: inline;
+            vertical-align: baseline;
+        }
+
+        .typewriter-cursor {
+            display: inline-block;
+            font-weight: normal;
+            color: currentColor;
+            animation: typewriterBlink 1s infinite step-end;
+            vertical-align: baseline;
+            margin-left: 1px;
+        }
+
+        @keyframes typewriterBlink {
+            0%, 50% {
+                opacity: 1;
+            }
+            51%, 100% {
+                opacity: 0;
+            }
+        }
+        
+        .copy-note {
+            background: #e8f5e8;
+            border: 1px solid #c3e6c3;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-size: 14px;
+            color: #2d5a2d;
+        }
+
+        /* Handwritten quote style - Enhanced with fancy fonts */
+        .slogan-handwritten {
+            font-family: 'Caveat', 'Dancing Script', 'Brush Script MT', cursive;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 600;
+            color: #2c3e50;
+            position: relative;
+            display: block;
+            padding: 2rem 1rem;
+            text-align: center;
+            line-height: 1.4;
+            transform: rotate(-1deg);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .slogan-quote.slogan-handwritten::before {
+            font-family: 'Caveat', cursive;
+            font-size: 4rem;
+            color: #3498db;
+            opacity: 0.4;
+            position: absolute;
+            content: """;
+            top: -0.5rem;
+            left: -0.5rem;
+            transform: rotate(-10deg);
+        }
+
+        .slogan-quote.slogan-handwritten::after {
+            font-family: 'Caveat', cursive;
+            font-size: 4rem;
+            color: #3498db;
+            opacity: 0.4;
+            position: absolute;
+            content: """;
+            bottom: -1.5rem;
+            right: -0.5rem;
+            transform: rotate(8deg);
+        }
+
+        .slogan-handwritten cite {
+            display: block;
+            margin-top: 1rem;
+            font-size: 0.75em;
+            font-style: normal;
+            color: #34495e;
+            font-weight: 500;
+            transform: rotate(1deg);
+            margin-right: 2rem;
+        }
+
+        .slogan-handwritten cite::before {
+            content: "— ";
+            color: #3498db;
+            font-size: 1.2em;
+        }
+
+        /* Quill Writing Effect */
+        .quill-writing {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quill-writing .typewriter-cursor {
+            animation: quillFloat 2s ease-in-out infinite, typewriterBlink 1.5s infinite step-end;
+            margin-left: 3px;
+            transform: rotate(15deg);
+            display: inline-block;
+            font-size: 1.2em;
+        }
+
+        @keyframes quillFloat {
+            0%, 100% {
+                transform: rotate(15deg) translateY(0px);
+            }
+            50% {
+                transform: rotate(15deg) translateY(-2px);
+            }
+        }
+
+        .quill-writing .typewriter-text {
+            position: relative;
+        }
+
+        .quill-writing .typewriter-text::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #8b4513, transparent);
+            opacity: 0.3;
+            animation: inkFlow 3s ease-in-out infinite;
+        }
+
+        @keyframes inkFlow {
+            0%, 100% {
+                opacity: 0.2;
+                transform: scaleX(0.8);
+            }
+            50% {
+                opacity: 0.4;
+                transform: scaleX(1.1);
+            }
+        }
+
+        /* Spencerian Script Fountain Pen Effect */
+        .fountain-pen-writing {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fountain-pen-writing .typewriter-cursor {
+            animation: fountainPenFlow 1.8s ease-in-out infinite, typewriterBlink 1.2s infinite step-end;
+            margin-left: 2px;
+            transform: rotate(205deg);
+            display: inline-block;
+            font-size: 1.1em;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+        }
+
+        @keyframes fountainPenFlow {
+            0%, 100% {
+                transform: rotate(205deg) translateY(0px) scale(1);
+            }
+            25% {
+                transform: rotate(200deg) translateY(-1px) scale(1.05);
+            }
+            50% {
+                transform: rotate(205deg) translateY(-2px) scale(1.1);
+            }
+            75% {
+                transform: rotate(210deg) translateY(-1px) scale(1.05);
+            }
+        }
+
+        .fountain-pen-writing .typewriter-text {
+            position: relative;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .fountain-pen-writing .typewriter-text::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #2c3e50, #1a1a2e, transparent);
+            opacity: 0.2;
+            animation: spencerianInk 2.5s ease-in-out infinite;
+            border-radius: 1px;
+        }
+
+        @keyframes spencerianInk {
+            0%, 100% {
+                opacity: 0.15;
+                transform: scaleX(0.9) scaleY(0.8);
+            }
+            50% {
+                opacity: 0.25;
+                transform: scaleX(1.2) scaleY(1.2);
+            }
+        }
+
+        .fountain-pen-writing .typewriter-text::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 40%, rgba(26,26,46,0.05) 50%, transparent 60%);
+            pointer-events: none;
+            animation: spencerianSheen 3s ease-in-out infinite;
+        }
+
+        @keyframes spencerianSheen {
+            0%, 100% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            50% {
+                opacity: 1;
+                transform: translateX(100%);
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="assets/css/slogans.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Dancing+Script:wght@400;600;700&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>🎯 Shogun Slogans - Test Showcase</h1>
+    <p>Test the typewriter functionality with these examples. Copy the shortcodes to use in WordPress.</p>
+
+    <!-- Basic Demo -->
+    <div class="showcase-section">
+        <h2 class="showcase-title">📝 Basic Typewriter</h2>
+        <div class="demo-container">
+            <div class="shogun-typewriter" 
+                 data-text="Hello! This is the Shogun Slogans typewriter effect..."
+                 data-speed="100"
+                 data-cursor="|"
+                 data-loop="true">
+                <span class="typewriter-text"></span>
+                <span class="typewriter-cursor">|</span>
+            </div>
+        </div>
+        
+        <div class="copy-note">
+            📋 WordPress shortcode:
+        </div>
+        
+        <div class="code-block">
+[typewriter_text text="Hello! This is the Shogun Slogans typewriter effect..." speed="100"]
+        </div>
+    </div>
+
+    <!-- Fast Typing Demo -->
+    <div class="showcase-section">
+        <h2 class="showcase-title">⚡ Fast Typing</h2>
+        <div class="demo-container">
+            <div class="shogun-typewriter" 
+                 data-text="I type really fast! Watch me go..."
+                 data-speed="30"
+                 data-cursor="▌"
+                 data-loop="true">
+                <span class="typewriter-text"></span>
+                <span class="typewriter-cursor">▌</span>
+            </div>
+        </div>
+        
+        <div class="code-block">
+[typewriter_text text="I type really fast! Watch me go..." speed="30" cursor="▌"]
+        </div>
+    </div>
+
+    <!-- Slow Dramatic Demo -->
+    <div class="showcase-section">
+        <h2 class="showcase-title">🐌 Slow & Dramatic</h2>
+        <div class="demo-container">
+            <div class="shogun-typewriter" 
+                 data-text="Slow... and... very... dramatic... effect..."
+                 data-speed="200"
+                 data-cursor="_"
+                 data-loop="true"
+                 style="font-family: 'Georgia', serif; font-size: 20px; color: #8e44ad;">
+                <span class="typewriter-text"></span>
+                <span class="typewriter-cursor">_</span>
+            </div>
+        </div>
+        
+        <div class="code-block">
+[typewriter_text text="Slow... and... very... dramatic... effect..." speed="200" cursor="_"]
+        </div>
+    </div>
+
+    <!-- No Loop Demo -->
+    <div class="showcase-section">
+        <h2 class="showcase-title">🔄 Type Once (No Loop)</h2>
+        <div class="demo-container">
+            <div class="shogun-typewriter" 
+                 data-text="This text only types once and stops."
+                 data-speed="80"
+                 data-cursor="|"
+                 data-loop="false">
+                <span class="typewriter-text"></span>
+                <span class="typewriter-cursor">|</span>
+            </div>
+        </div>
+        
+        <div class="code-block">
+[typewriter_text text="This text only types once and stops." speed="80" loop="false"]
+        </div>
+    </div>
+
+    <!-- Code Style Demo -->
+    <div class="showcase-section">
+        <h2 class="showcase-title">💻 Code Style</h2>
+        <div class="demo-container">
+            <div class="shogun-typewriter" 
+                 data-text="const message = 'Hello, World!'; console.log(message);"
+                 data-speed="60"
+                 data-cursor="█"
+                 data-loop="true"
+                 style="font-family: 'Monaco', monospace; background: #2c3e50; color: #2ecc71; padding: 15px; border-radius: 5px;">
+                <span class="typewriter-text"></span>
+                <span class="typewriter-cursor">█</span>
+            </div>
+        </div>
+        
+        <div class="code-block">
+[typewriter_text text="const message = 'Hello, World!'; console.log(message);" speed="60" cursor="█"]
+        </div>
+    </div>
+
+    <!-- Quote Demo -->
+    <div class="showcase-section">
+        <h2 class="showcase-title">💬 Quote Style</h2>
+        <div class="demo-container">
+            <div class="shogun-typewriter" 
+                 data-text="&quot;The future belongs to those who believe in the beauty of their dreams.&quot; - Eleanor Roosevelt"
+                 data-speed="70"
+                 data-cursor="❘"
+                 data-loop="true"
+                 style="font-family: 'Times New Roman', serif; font-size: 18px; color: #34495e; font-style: italic; text-align: center;">
+                <span class="typewriter-text"></span>
+                <span class="typewriter-cursor">❘</span>
+            </div>
+        </div>
+        
+        <div class="code-block">
+[typewriter_text text="The future belongs to those who believe..." speed="70" cursor="❘"]
+        </div>
+    </div>
+
+    <!-- Handwritten Quote Demo -->
+    <div class="showcase-section">
+        <h2 class="showcase-title">✍️ Handwritten Quote Style with Citation</h2>
+        <div class="demo-container">
+            <div class="company-slogan slogan-quote slogan-handwritten slogan-center">
+                "We will help you make The&nbsp;Smart&nbsp;Move&nbsp;—&nbsp;I&nbsp;guarantee&nbsp;it!"
+                <cite>Mikko Jetsu, CEO/Chief Broker</cite>
+            </div>
+        </div>
+        
+        <div class="code-block">
+&lt;div class="company-slogan slogan-quote slogan-handwritten slogan-center"&gt;
+    "We will help you make The&amp;nbsp;Smart&amp;nbsp;Move&amp;nbsp;&amp;mdash;&amp;nbsp;I&amp;nbsp;guarantee&amp;nbsp;it!"
+    &lt;cite&gt;Mikko Jetsu, CEO/Chief Broker&lt;/cite&gt;
+&lt;/div&gt;
+        </div>
+    </div>
+
+    <!-- Quill Typewriter Demo -->
+    <div class="showcase-section">
+        <h2 class="showcase-title">🖋️ Quill Typewriter - Shakespearean Style</h2>
+        <div class="demo-container">
+            <div class="shogun-typewriter quill-writing" 
+                 data-text="&quot;We will help you make The Smart Move — I guarantee it!&quot; — Mikko Jetsu, CEO/Chief Broker"
+                 data-speed="120"
+                 data-cursor="🖋️"
+                 data-loop="true"
+                 style="font-family: 'Caveat', cursive; font-size: clamp(1.5rem, 3.5vw, 2.5rem); color: #2c3e50; text-align: center; padding: 2rem; transform: rotate(-0.5deg); text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
+                <span class="typewriter-text"></span>
+                <span class="typewriter-cursor">🖋️</span>
+            </div>
+        </div>
+        
+        <div class="code-block">
+&lt;div class="shogun-typewriter quill-writing" 
+     data-text="&amp;quot;We will help you make The Smart Move — I guarantee it!&amp;quot; — Mikko Jetsu, CEO/Chief Broker"
+     data-speed="120"
+     data-cursor="🖋️"
+     data-loop="true"
+     style="font-family: 'Caveat', cursive; font-size: 2rem; color: #2c3e50; text-align: center;"&gt;
+    &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+    &lt;span class="typewriter-cursor"&gt;🖋️&lt;/span&gt;
+&lt;/div&gt;
+        </div>
+    </div>
+
+    <!-- Spencerian Script Fountain Pen Demo -->
+    <div class="showcase-section">
+        <h2 class="showcase-title">✒️ Spencerian Script - Fountain Pen Elegance</h2>
+        <div class="demo-container">
+            <div class="shogun-typewriter fountain-pen-writing" 
+                 data-text="&quot;We will help you make The Smart Move — I guarantee it!&quot; — Mikko Jetsu, CEO/Chief Broker"
+                 data-speed="140"
+                 data-cursor="✒️"
+                 data-loop="true"
+                 style="font-family: 'Dancing Script', 'Tangerine', cursive; font-size: clamp(1.8rem, 4vw, 3.2rem); color: #1a1a2e; text-align: center; padding: 2.5rem; font-weight: 500; letter-spacing: 0.5px; line-height: 1.3;">
+                <span class="typewriter-text"></span>
+                <span class="typewriter-cursor">✒️</span>
+            </div>
+        </div>
+        
+        <div class="code-block">
+&lt;div class="shogun-typewriter fountain-pen-writing" 
+     data-text="&amp;quot;We will help you make The Smart Move — I guarantee it!&amp;quot; — Mikko Jetsu, CEO/Chief Broker"
+     data-speed="140"
+     data-cursor="✒️"
+     data-loop="true"
+     style="font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: #1a1a2e; text-align: center;"&gt;
+    &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+    &lt;span class="typewriter-cursor"&gt;✒️&lt;/span&gt;
+&lt;/div&gt;
+        </div>
+        
+        <div class="copy-note">
+            📋 WordPress shortcode with custom cursor:
+        </div>
+        
+        <div class="code-block">
+[typewriter_text text="We will help you make The Smart Move..." speed="140" cursor="✒️" class="fountain-pen-writing"]
+        </div>
+    </div>
+
+    <!-- Cool Cursors Showcase -->
+    <div class="showcase-section">
+        <h2 class="showcase-title">🎨 Amazing Cursor Styles Showcase</h2>
+        
+        <h3>🔥 Fire Cursor - Blazing Fast</h3>
+        <div class="demo-container">
+            <div class="shogun-typewriter" 
+                 data-text="🔥 REIA sets the real estate market on fire!"
+                 data-speed="50"
+                 data-cursor="🔥"
+                 data-loop="true"
+                 style="font-family: 'Arial Black', sans-serif; font-size: 1.5rem; color: #ff4500; font-weight: bold;">
+                <span class="typewriter-text"></span>
+                <span class="typewriter-cursor">🔥</span>
+            </div>
+        </div>
+        <div class="code-block">[typewriter_text text="REIA sets the market on fire!" speed="50" cursor="🔥"]</div>
+        
+        <h3>⚡ Lightning Cursor - Electric Energy</h3>
+        <div class="demo-container">
+            <div class="shogun-typewriter" 
+                 data-text="⚡ Lightning-fast real estate solutions!"
+                 data-speed="40"
+                 data-cursor="⚡"
+                 data-loop="true"
+                 style="font-family: 'Impact', sans-serif; font-size: 1.4rem; color: #ffd700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                <span class="typewriter-text"></span>
+                <span class="typewriter-cursor">⚡</span>
+            </div>
+        </div>
+        <div class="code-block">[typewriter_text text="Lightning-fast solutions!" speed="40" cursor="⚡"]</div>
+        
+        <h3>💎 Diamond Cursor - Luxury Living</h3>
+        <div class="demo-container">
+            <div class="shogun-typewriter" 
+                 data-text="💎 Discover luxury properties that sparkle..."
+                 data-speed="110"
+                 data-cursor="💎"
+                 data-loop="true"
+                 style="font-family: 'Georgia', serif; font-size: 1.6rem; color: #4a4a4a; font-style: italic;">
+                <span class="typewriter-text"></span>
+                <span class="typewriter-cursor">💎</span>
+            </div>
+        </div>
+        <div class="code-block">[typewriter_text text="Luxury properties that sparkle..." speed="110" cursor="💎"]</div>
+        
+        <h3>🚀 Rocket Cursor - Sky High Success</h3>
+        <div class="demo-container">
+            <div class="shogun-typewriter" 
+                 data-text="🚀 Your property values will skyrocket with REIA!"
+                 data-speed="80"
+                 data-cursor="🚀"
+                 data-loop="true"
+                 style="font-family: 'Verdana', sans-serif; font-size: 1.4rem; color: #0066cc; font-weight: 600;">
+                <span class="typewriter-text"></span>
+                <span class="typewriter-cursor">🚀</span>
+            </div>
+        </div>
+        <div class="code-block">[typewriter_text text="Property values will skyrocket!" speed="80" cursor="🚀"]</div>
+        
+        <h3>🎯 Target Cursor - Precision Marketing</h3>
+        <div class="demo-container">
+            <div class="shogun-typewriter" 
+                 data-text="🎯 We hit the target every time for our clients!"
+                 data-speed="95"
+                 data-cursor="🎯"
+                 data-loop="true"
+                 style="font-family: 'Trebuchet MS', sans-serif; font-size: 1.3rem; color: #cc0000; font-weight: 500;">
+                <span class="typewriter-text"></span>
+                <span class="typewriter-cursor">🎯</span>
+            </div>
+        </div>
+        <div class="code-block">[typewriter_text text="We hit the target every time!" speed="95" cursor="🎯"]</div>
+        
+        <h3>👑 Crown Cursor - Royal Treatment</h3>
+        <div class="demo-container">
+            <div class="shogun-typewriter" 
+                 data-text="👑 Experience the royal treatment in real estate..."
+                 data-speed="120"
+                 data-cursor="👑"
+                 data-loop="true"
+                 style="font-family: 'Times New Roman', serif; font-size: 1.5rem; color: #800080; font-weight: 600;">
+                <span class="typewriter-text"></span>
+                <span class="typewriter-cursor">👑</span>
+            </div>
+        </div>
+        <div class="code-block">[typewriter_text text="Experience the royal treatment..." speed="120" cursor="👑"]</div>
+        
+        <h3>🌟 Star Cursor - Five-Star Service</h3>
+        <div class="demo-container">
+            <div class="shogun-typewriter" 
+                 data-text="🌟 Five-star service for every client, every time!"
+                 data-speed="85"
+                 data-cursor="🌟"
+                 data-loop="true"
+                 style="font-family: 'Calibri', sans-serif; font-size: 1.4rem; color: #ff6600; font-weight: 500;">
+                <span class="typewriter-text"></span>
+                <span class="typewriter-cursor">🌟</span>
+            </div>
+        </div>
+        <div class="code-block">[typewriter_text text="Five-star service every time!" speed="85" cursor="🌟"]</div>
+        
+        <h3>🏠 House Cursor - Real Estate Focus</h3>
+        <div class="demo-container">
+            <div class="shogun-typewriter" 
+                 data-text="🏠 Finding the perfect home for every family..."
+                 data-speed="100"
+                 data-cursor="🏠"
+                 data-loop="true"
+                 style="font-family: 'Arial', sans-serif; font-size: 1.3rem; color: #228b22; font-weight: 500;">
+                <span class="typewriter-text"></span>
+                <span class="typewriter-cursor">🏠</span>
+            </div>
+        </div>
+        <div class="code-block">[typewriter_text text="Finding the perfect home..." speed="100" cursor="🏠"]</div>
+    </div>
+
+    <!-- WordPress Custom HTML Block Section -->
+    <div class="showcase-section">
+        <h2 class="showcase-title">🚀 Ready-to-Paste HTML for WordPress</h2>
+        <p><strong>Copy these HTML snippets and paste directly into WordPress Custom HTML blocks for instant testing!</strong></p>
+        
+        <h3>📝 Basic Typewriter HTML</h3>
+        <div class="code-block">
+&lt;div class="shogun-typewriter" 
+     data-text="Hello! This is working in WordPress!"
+     data-speed="100"
+     data-cursor="|"
+     data-loop="true"&gt;
+    &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+    &lt;span class="typewriter-cursor"&gt;|&lt;/span&gt;
+&lt;/div&gt;
+        </div>
+        
+        <h3>⚡ Fast Typing HTML</h3>
+        <div class="code-block">
+&lt;div class="shogun-typewriter" 
+     data-text="Super fast typing in WordPress!"
+     data-speed="30"
+     data-cursor="▌"
+     data-loop="true"&gt;
+    &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+    &lt;span class="typewriter-cursor"&gt;▌&lt;/span&gt;
+&lt;/div&gt;
+        </div>
+        
+        <h3>🐌 Slow Dramatic HTML</h3>
+        <div class="code-block">
+&lt;div class="shogun-typewriter" 
+     data-text="Slow... dramatic... WordPress... effect..."
+     data-speed="200"
+     data-cursor="_"
+     data-loop="true"
+     style="font-size: 18px; color: #8e44ad; font-weight: bold;"&gt;
+    &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+    &lt;span class="typewriter-cursor"&gt;_&lt;/span&gt;
+&lt;/div&gt;
+        </div>
+        
+        <h3>💻 Code Style HTML</h3>
+        <div class="code-block">
+&lt;div class="shogun-typewriter" 
+     data-text="console.log('WordPress typewriter works!');"
+     data-speed="60"
+     data-cursor="█"
+     data-loop="true"
+     style="font-family: monospace; background: #2c3e50; color: #2ecc71; padding: 15px; border-radius: 5px;"&gt;
+    &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+    &lt;span class="typewriter-cursor"&gt;█&lt;/span&gt;
+&lt;/div&gt;
+        </div>
+        
+        <h3>🔄 No Loop HTML (Types Once)</h3>
+        <div class="code-block">
+&lt;div class="shogun-typewriter" 
+     data-text="This types once and stops in WordPress."
+     data-speed="80"
+     data-cursor="|"
+     data-loop="false"&gt;
+    &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+    &lt;span class="typewriter-cursor"&gt;|&lt;/span&gt;
+&lt;/div&gt;
+        </div>
+        
+        <h3>📱 Mobile-Friendly HTML</h3>
+        <div class="code-block">
+&lt;div class="shogun-typewriter" 
+     data-text="Mobile responsive typewriter for WordPress!"
+     data-speed="90"
+     data-cursor="❘"
+     data-loop="true"
+     style="font-size: 16px; text-align: center; padding: 10px;"&gt;
+    &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+    &lt;span class="typewriter-cursor"&gt;❘&lt;/span&gt;
+&lt;/div&gt;
+        </div>
+        
+        <h3>✍️ Handwritten Quote with Citation HTML</h3>
+        <div class="code-block">
+&lt;div class="company-slogan slogan-quote slogan-handwritten slogan-center"&gt;
+    "We will help you make The&amp;nbsp;Smart&amp;nbsp;Move&amp;nbsp;&amp;mdash;&amp;nbsp;I&amp;nbsp;guarantee&amp;nbsp;it!"
+    &lt;cite&gt;Mikko Jetsu, CEO/Chief Broker&lt;/cite&gt;
+&lt;/div&gt;
+        </div>
+        
+        <h3>🖋️ Quill Typewriter - Shakespearean Style HTML</h3>
+        <div class="code-block">
+&lt;div class="shogun-typewriter quill-writing" 
+     data-text="&amp;quot;We will help you make The Smart Move — I guarantee it!&amp;quot; — Mikko Jetsu, CEO/Chief Broker"
+     data-speed="120"
+     data-cursor="🖋️"
+     data-loop="true"
+     style="font-family: 'Caveat', cursive; font-size: 2rem; color: #2c3e50; text-align: center; padding: 2rem; transform: rotate(-0.5deg);"&gt;
+    &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+    &lt;span class="typewriter-cursor"&gt;🖋️&lt;/span&gt;
+&lt;/div&gt;
+        </div>
+        
+        <h3>✒️ Spencerian Script - Fountain Pen HTML</h3>
+        <div class="code-block">
+&lt;div class="shogun-typewriter fountain-pen-writing" 
+     data-text="&amp;quot;We will help you make The Smart Move — I guarantee it!&amp;quot; — Mikko Jetsu, CEO/Chief Broker"
+     data-speed="140"
+     data-cursor="✒️"
+     data-loop="true"
+     style="font-family: 'Dancing Script', 'Tangerine', cursive; font-size: 2.5rem; color: #1a1a2e; text-align: center; padding: 2.5rem; font-weight: 500; letter-spacing: 0.5px;"&gt;
+    &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+    &lt;span class="typewriter-cursor"&gt;✒️&lt;/span&gt;
+&lt;/div&gt;
+        </div>
+        
+        <h3>🎨 Cool Cursor Collection HTML</h3>
+        <div class="code-block">
+&lt;!-- Fire Cursor - Blazing Fast --&gt;
+&lt;div class="shogun-typewriter" 
+     data-text="🔥 REIA sets the real estate market on fire!"
+     data-speed="50"
+     data-cursor="🔥"
+     data-loop="true"
+     style="font-family: Arial Black, sans-serif; font-size: 1.5rem; color: #ff4500; font-weight: bold;"&gt;
+    &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+    &lt;span class="typewriter-cursor"&gt;🔥&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- Lightning Cursor - Electric Energy --&gt;
+&lt;div class="shogun-typewriter" 
+     data-text="⚡ Lightning-fast real estate solutions!"
+     data-speed="40"
+     data-cursor="⚡"
+     data-loop="true"
+     style="font-family: Impact, sans-serif; font-size: 1.4rem; color: #ffd700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);"&gt;
+    &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+    &lt;span class="typewriter-cursor"&gt;⚡&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- Diamond Cursor - Luxury Living --&gt;
+&lt;div class="shogun-typewriter" 
+     data-text="💎 Discover luxury properties that sparkle..."
+     data-speed="110"
+     data-cursor="💎"
+     data-loop="true"
+     style="font-family: Georgia, serif; font-size: 1.6rem; color: #4a4a4a; font-style: italic;"&gt;
+    &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+    &lt;span class="typewriter-cursor"&gt;💎&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- Rocket Cursor - Sky High Success --&gt;
+&lt;div class="shogun-typewriter" 
+     data-text="🚀 Your property values will skyrocket!"
+     data-speed="80"
+     data-cursor="🚀"
+     data-loop="true"
+     style="font-family: Verdana, sans-serif; font-size: 1.4rem; color: #0066cc; font-weight: 600;"&gt;
+    &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+    &lt;span class="typewriter-cursor"&gt;🚀&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- Crown Cursor - Royal Treatment --&gt;
+&lt;div class="shogun-typewriter" 
+     data-text="👑 Experience the royal treatment in real estate..."
+     data-speed="120"
+     data-cursor="👑"
+     data-loop="true"
+     style="font-family: Times New Roman, serif; font-size: 1.5rem; color: #800080; font-weight: 600;"&gt;
+    &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+    &lt;span class="typewriter-cursor"&gt;👑&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- House Cursor - Real Estate Focus --&gt;
+&lt;div class="shogun-typewriter" 
+     data-text="🏠 Finding the perfect home for every family..."
+     data-speed="100"
+     data-cursor="🏠"
+     data-loop="true"
+     style="font-family: Arial, sans-serif; font-size: 1.3rem; color: #228b22; font-weight: 500;"&gt;
+    &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+    &lt;span class="typewriter-cursor"&gt;🏠&lt;/span&gt;
+&lt;/div&gt;
+        </div>
+        
+        <h3>🎯 Shortcode Examples with Custom Cursors</h3>
+        <div class="code-block">
+&lt;!-- Basic shortcode syntax with cursor parameter --&gt;
+[typewriter_text text="Your message here" speed="100" cursor="🔥"]
+[typewriter_text text="Lightning fast service!" speed="50" cursor="⚡"]
+[typewriter_text text="Luxury living awaits..." speed="120" cursor="💎"]
+[typewriter_text text="Sky high success!" speed="80" cursor="🚀"]
+[typewriter_text text="Royal treatment guaranteed" speed="110" cursor="👑"]
+[typewriter_text text="Perfect homes found here" speed="90" cursor="🏠"]
+
+&lt;!-- Advanced shortcodes with classes --&gt;
+[typewriter_text text="Elegant writing..." speed="140" cursor="✒️" class="fountain-pen-writing"]
+[typewriter_text text="Shakespearean style..." speed="120" cursor="🖋️" class="quill-writing"]
+        </div>
+        
+        <h3>✒️ Alternative Quill Cursors HTML</h3>
+        <div class="code-block">
+&lt;!-- With fountain pen cursor --&gt;
+&lt;div class="shogun-typewriter quill-writing" 
+     data-text="Elegant writing with fountain pen style..."
+     data-speed="100"
+     data-cursor="✒️"
+     data-loop="true"
+     style="font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: #34495e;"&gt;
+    &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+    &lt;span class="typewriter-cursor"&gt;✒️&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- With classic quill cursor --&gt;
+&lt;div class="shogun-typewriter quill-writing" 
+     data-text="Classic quill pen writing experience..."
+     data-speed="140"
+     data-cursor="🖋️"
+     data-loop="true"
+     style="font-family: 'Caveat', cursive; font-size: 1.6rem; color: #2c3e50;"&gt;
+    &lt;span class="typewriter-text"&gt;&lt;/span&gt;
+    &lt;span class="typewriter-cursor"&gt;🖋️&lt;/span&gt;
+&lt;/div&gt;
+        </div>
+        
+        <h3>💬 Simple Quote Style HTML</h3>
+        <div class="code-block">
+&lt;div class="company-slogan slogan-quote slogan-center"&gt;
+    "Success is not final, failure is not fatal: it is the courage to continue that counts."
+    &lt;cite&gt;Winston Churchill&lt;/cite&gt;
+&lt;/div&gt;
+        </div>
+
+        <div class="copy-note">
+            💡 <strong>WordPress Testing Steps:</strong><br>
+            1. Copy any HTML code above<br>
+            2. In WordPress editor, add a "Custom HTML" block<br>
+            3. Paste the HTML code<br>
+            4. Preview/publish to see the typewriter effect!
+        </div>
+    </div>
+
+    <!-- Instructions -->
+    <div class="showcase-section">
+        <h2 class="showcase-title">📋 How to Use in WordPress</h2>
+        <ol style="font-size: 16px; line-height: 1.8;">
+            <li><strong>Activate the plugin</strong> in your WordPress admin</li>
+            <li><strong>Edit a post or page</strong> where you want the typewriter effect</li>
+            <li><strong>Add a Shortcode block</strong> or Custom HTML block</li>
+            <li><strong>Copy shortcode OR HTML</strong> from above and paste it</li>
+            <li><strong>Customize parameters</strong> as needed (speed, cursor, text, etc.)</li>
+            <li><strong>Preview or publish</strong> to see the effect in action</li>
+        </ol>
+        
+        <h3>🛠️ Customization Options:</h3>
+        <ul style="font-size: 14px; line-height: 1.6;">
+            <li><code>text</code> - The text to type out</li>
+            <li><code>speed</code> - Typing speed in milliseconds (lower = faster)</li>
+            <li><code>cursor</code> - Cursor character examples:
+                <ul style="margin-top: 5px; margin-left: 20px;">
+                    <li><strong>Classic:</strong> | _ ▌ █ ❘</li>
+                    <li><strong>Writing Tools:</strong> ✒️ 🖋️ 🪶 ✏️ 🖊️</li>
+                    <li><strong>Energy/Action:</strong> 🔥 ⚡ 🚀 💥 ⭐</li>
+                    <li><strong>Business:</strong> 💼 📈 💰 💎 🎯</li>
+                    <li><strong>Real Estate:</strong> 🏠 🏢 🔑 🌟 👑</li>
+                    <li><strong>Fun/Creative:</strong> 🎨 🎭 🎪 🎊 🌈</li>
+                </ul>
+            </li>
+            <li><code>loop</code> - Loop animation (true/false)</li>
+            <li><code>delay</code> - Delay before starting (milliseconds)</li>
+            <li><code>class</code> - Additional CSS class for styling (fountain-pen-writing, quill-writing)</li>
+            <li><code>id</code> - HTML ID for targeting with CSS</li>
+        </ul>
+        
+        <h3>⚡ Speed Guide:</h3>
+        <ul style="font-size: 14px; line-height: 1.6;">
+            <li><strong>Lightning Fast:</strong> 30-50ms (urgent, energetic messages)</li>
+            <li><strong>Fast:</strong> 60-80ms (business, modern feel)</li>
+            <li><strong>Normal:</strong> 90-110ms (general content)</li>
+            <li><strong>Elegant:</strong> 120-140ms (luxury, sophisticated content)</li>
+            <li><strong>Dramatic:</strong> 150-200ms (emphasis, storytelling)</li>
+        </ul>
+    </div>
+
+    <script>
+        // Typewriter functionality for demo
+        class SimpleTypewriter {
+            constructor(element) {
+                this.element = element;
+                this.textElement = element.querySelector('.typewriter-text');
+                this.cursorElement = element.querySelector('.typewriter-cursor');
+                
+                this.settings = {
+                    text: element.dataset.text || 'Sample text...',
+                    speed: parseInt(element.dataset.speed) || 100,
+                    cursor: element.dataset.cursor || '|',
+                    loop: element.dataset.loop !== 'false'
+                };
+                
+                this.currentIndex = 0;
+                this.isTyping = false;
+                this.timeoutId = null;
+                
+                this.init();
+            }
+            
+            init() {
+                this.textElement.textContent = '';
+                this.cursorElement.textContent = this.settings.cursor;
+                this.startTyping();
+            }
+            
+            startTyping() {
+                if (this.isTyping) return;
+                this.isTyping = true;
+                this.typeCharacter();
+            }
+            
+            typeCharacter() {
+                const currentText = this.settings.text;
+                const displayText = currentText.substring(0, this.currentIndex + 1);
+                
+                this.textElement.textContent = displayText;
+                this.currentIndex++;
+                
+                if (this.currentIndex < currentText.length) {
+                    this.timeoutId = setTimeout(() => this.typeCharacter(), this.settings.speed);
+                } else {
+                    this.isTyping = false;
+                    if (this.settings.loop) {
+                        this.timeoutId = setTimeout(() => {
+                            this.currentIndex = 0;
+                            this.textElement.textContent = '';
+                            this.startTyping();
+                        }, 2000);
+                    }
+                }
+            }
+        }
+        
+        // Initialize all typewriters
+        document.addEventListener('DOMContentLoaded', function() {
+            const typewriters = document.querySelectorAll('.shogun-typewriter');
+            typewriters.forEach(element => {
+                new SimpleTypewriter(element);
+            });
+        });
+    </script>
+</body>
+</html>
