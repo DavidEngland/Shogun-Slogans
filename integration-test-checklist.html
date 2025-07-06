@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shogun Slogans - Integration Test Checklist</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .checklist-section {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 4px solid #007cba;
+        }
+        .checklist-item input[type="checkbox"] {
+            margin-right: 15px;
+            margin-top: 4px;
+            transform: scale(1.2);
+        }
+        .checklist-item.priority-high {
+            border-left-color: #dc3545;
+            background: #fff5f5;
+        }
+        .checklist-item.priority-medium {
+            border-left-color: #ffc107;
+            background: #fffbf0;
+        }
+        .priority-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-left: 10px;
+        }
+        .priority-high .priority-badge {
+            background: #dc3545;
+            color: white;
+        }
+        .priority-medium .priority-badge {
+            background: #ffc107;
+            color: #000;
+        }
+        .priority-low .priority-badge {
+            background: #28a745;
+            color: white;
+        }
+        .test-code {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 12px;
+            margin-top: 8px;
+            border: 1px solid #ddd;
+        }
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .completion-stats {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            margin-bottom: 20px;
+            border: 2px solid #28a745;
+        }
+        .stats-item {
+            display: inline-block;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>🚀 Shogun Slogans Integration Test Checklist</h1>
+    <p>Comprehensive testing guide for the new Dynamic Animation API and Gutenberg blocks</p>
+    <p><strong>Version 3.2.0</strong> | Integration Complete ✅</p>
+</div>
+
+<div class="completion-stats">
+    <div class="stats-item">
+        <span id="completed-count">0</span> / <span id="total-count">0</span> Tests Completed
+    </div>
+    <div class="stats-item">
+        Progress: <span id="completion-percentage">0</span>%
+    </div>
+</div>
+
+<div class="checklist-section">
+    <h2 class="section-title">🔧 Pre-Testing Setup</h2>
+    
+    <div class="checklist-item priority-high">
+        <input type="checkbox" id="setup-1">
+        <div>
+            <strong>Plugin Activation</strong>
+            <span class="priority-badge">Critical</span>
+            <p>Activate the Shogun Slogans plugin in WordPress admin and verify no errors occur.</p>
+            <div class="test-code">Navigate to: WordPress Admin → Plugins → Activate "Shogun Slogans"</div>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-high">
+        <input type="checkbox" id="setup-2">
+        <div>
+            <strong>Check WordPress Requirements</strong>
+            <span class="priority-badge">Critical</span>
+            <p>Verify WordPress 5.0+ and PHP 7.4+ are running.</p>
+            <div class="test-code">Check: WordPress Admin → Tools → Site Health</div>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-medium">
+        <input type="checkbox" id="setup-3">
+        <div>
+            <strong>Admin Menu Present</strong>
+            <span class="priority-badge">High</span>
+            <p>Confirm "Shogun Slogans" appears in the WordPress admin menu.</p>
+            <div class="test-code">Check: WordPress Admin → Shogun Slogans (sidebar menu)</div>
+        </div>
+    </div>
+</div>
+
+<div class="checklist-section">
+    <h2 class="section-title">🚀 REST API Testing</h2>
+    
+    <div class="checklist-item priority-high">
+        <input type="checkbox" id="api-1">
+        <div>
+            <strong>API Endpoints Available</strong>
+            <span class="priority-badge">Critical</span>
+            <p>Test that all REST API endpoints are accessible.</p>
+            <div class="test-code">
+                GET /wp-json/shogun-slogans/v1/animations<br>
+                POST /wp-json/shogun-slogans/v1/generate-css<br>
+                GET /wp-json/shogun-slogans/v1/css/typewriter
+            </div>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-high">
+        <input type="checkbox" id="api-2">
+        <div>
+            <strong>Animation List Endpoint</strong>
+            <span class="priority-badge">Critical</span>
+            <p>Verify the animations list returns available animation types.</p>
+            <div class="test-code">
+                curl "http://your-site.com/wp-json/shogun-slogans/v1/animations"<br>
+                Expected: JSON with typewriter, handwritten, neon animations
+            </div>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-high">
+        <input type="checkbox" id="api-3">
+        <div>
+            <strong>CSS Generation</strong>
+            <span class="priority-badge">Critical</span>
+            <p>Test dynamic CSS generation with parameters.</p>
+            <div class="test-code">
+                POST to /wp-json/shogun-slogans/v1/generate-css<br>
+                Body: {"animation": "typewriter", "speed": 80, "color": "#ff6b6b"}
+            </div>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-medium">
+        <input type="checkbox" id="api-4">
+        <div>
+            <strong>CSS Caching</strong>
+            <span class="priority-badge">High</span>
+            <p>Verify CSS is cached and served efficiently on repeat requests.</p>
+            <div class="test-code">Make same API call twice, check cache headers or response time</div>
+        </div>
+    </div>
+</div>
+
+<div class="checklist-section">
+    <h2 class="section-title">📝 Enhanced Shortcode Testing</h2>
+    
+    <div class="checklist-item priority-high">
+        <input type="checkbox" id="shortcode-1">
+        <div>
+            <strong>Basic Shortcode</strong>
+            <span class="priority-badge">Critical</span>
+            <p>Test basic shortcode functionality.</p>
+            <div class="test-code">[shogun_animation type="typewriter" text="Hello World!"]</div>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-high">
+        <input type="checkbox" id="shortcode-2">
+        <div>
+            <strong>Parameterized Shortcode</strong>
+            <span class="priority-badge">Critical</span>
+            <p>Test shortcode with all parameters.</p>
+            <div class="test-code">
+                [shogun_animation type="typewriter" text="I will help you make The Smart Move" speed="80" color="#2c3e50" cursor="▌" font_size="1.5em"]
+            </div>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-medium">
+        <input type="checkbox" id="shortcode-3">
+        <div>
+            <strong>Dynamic CSS Injection</strong>
+            <span class="priority-badge">High</span>
+            <p>Verify unique CSS is generated and injected for each shortcode instance.</p>
+            <div class="test-code">Use multiple shortcodes with different parameters on same page</div>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-medium">
+        <input type="checkbox" id="shortcode-4">
+        <div>
+            <strong>Error Handling</strong>
+            <span class="priority-badge">High</span>
+            <p>Test shortcode with invalid parameters.</p>
+            <div class="test-code">[shogun_animation type="invalid" text="Test"]</div>
+        </div>
+    </div>
+</div>
+
+<div class="checklist-section">
+    <h2 class="section-title">🧱 Gutenberg Block Testing</h2>
+    
+    <div class="checklist-item priority-high">
+        <input type="checkbox" id="block-1">
+        <div>
+            <strong>Block Registration</strong>
+            <span class="priority-badge">Critical</span>
+            <p>Verify Shogun Slogans blocks appear in the block inserter.</p>
+            <div class="test-code">
+                WordPress Editor → Add Block → Search "Shogun Animation"<br>
+                Look for: Shogun Animation, Shogun Typewriter blocks
+            </div>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-high">
+        <input type="checkbox" id="block-2">
+        <div>
+            <strong>Block Editor Interface</strong>
+            <span class="priority-badge">Critical</span>
+            <p>Test block insertion and parameter controls.</p>
+            <div class="test-code">
+                Insert block → Check sidebar controls:<br>
+                Text, Animation Type, Speed, Color, Cursor, Font Size, etc.
+            </div>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-high">
+        <input type="checkbox" id="block-3">
+        <div>
+            <strong>Live Preview</strong>
+            <span class="priority-badge">Critical</span>
+            <p>Verify live preview updates when parameters change.</p>
+            <div class="test-code">Change text/speed/color and watch preview update in real-time</div>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-medium">
+        <input type="checkbox" id="block-4">
+        <div>
+            <strong>Block Save/Load</strong>
+            <span class="priority-badge">High</span>
+            <p>Test saving page and reloading to ensure blocks persist correctly.</p>
+            <div class="test-code">Save page → Reload editor → Verify block parameters maintained</div>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-medium">
+        <input type="checkbox" id="block-5">
+        <div>
+            <strong>Frontend Rendering</strong>
+            <span class="priority-badge">High</span>
+            <p>Verify blocks render correctly on the frontend.</p>
+            <div class="test-code">View published page → Check animation plays correctly</div>
+        </div>
+    </div>
+</div>
+
+<div class="checklist-section">
+    <h2 class="section-title">🎨 Animation Quality Testing</h2>
+    
+    <div class="checklist-item priority-high">
+        <input type="checkbox" id="anim-1">
+        <div>
+            <strong>Typewriter Animation</strong>
+            <span class="priority-badge">Critical</span>
+            <p>Test typewriter effect with various speeds and text lengths.</p>
+            <div class="test-code">Test speeds: 50, 100, 150ms | Test short and long text</div>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-medium">
+        <input type="checkbox" id="anim-2">
+        <div>
+            <strong>Cursor Styles</strong>
+            <span class="priority-badge">High</span>
+            <p>Test different cursor characters and blinking effect.</p>
+            <div class="test-code">Test cursors: |, ▌, _, ●</div>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-medium">
+        <input type="checkbox" id="anim-3">
+        <div>
+            <strong>Color Customization</strong>
+            <span class="priority-badge">High</span>
+            <p>Test various text colors and gradients.</p>
+            <div class="test-code">Test colors: #ff6b6b, #4ecdc4, #45b7d1, gradients</div>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-low">
+        <input type="checkbox" id="anim-4">
+        <div>
+            <strong>Font Size Responsiveness</strong>
+            <span class="priority-badge">Medium</span>
+            <p>Test different font sizes and mobile responsiveness.</p>
+            <div class="test-code">Test: 1em, 1.5em, 2em, check mobile rendering</div>
+        </div>
+    </div>
+</div>
+
+<div class="checklist-section">
+    <h2 class="section-title">⚡ Performance Testing</h2>
+    
+    <div class="checklist-item priority-medium">
+        <input type="checkbox" id="perf-1">
+        <div>
+            <strong>Page Load Speed</strong>
+            <span class="priority-badge">High</span>
+            <p>Measure page load time with multiple animations.</p>
+            <div class="test-code">Use browser dev tools or GTmetrix to measure load times</div>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-medium">
+        <input type="checkbox" id="perf-2">
+        <div>
+            <strong>CSS Size Optimization</strong>
+            <span class="priority-badge">High</span>
+            <p>Verify generated CSS is minimal and only includes needed styles.</p>
+            <div class="test-code">Check page source for inline CSS size (should be &lt; 5KB per animation)</div>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-low">
+        <input type="checkbox" id="perf-3">
+        <div>
+            <strong>JavaScript Footprint</strong>
+            <span class="priority-badge">Medium</span>
+            <p>Confirm minimal JavaScript is loaded on frontend.</p>
+            <div class="test-code">Check Network tab in dev tools for JS files</div>
+        </div>
+    </div>
+</div>
+
+<div class="checklist-section">
+    <h2 class="section-title">♿ Accessibility Testing</h2>
+    
+    <div class="checklist-item priority-medium">
+        <input type="checkbox" id="a11y-1">
+        <div>
+            <strong>Screen Reader Compatibility</strong>
+            <span class="priority-badge">High</span>
+            <p>Test with screen readers to ensure text is accessible.</p>
+            <div class="test-code">Use NVDA/VoiceOver to test animated text reading</div>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-medium">
+        <input type="checkbox" id="a11y-2">
+        <div>
+            <strong>Reduced Motion Preference</strong>
+            <span class="priority-badge">High</span>
+            <p>Test behavior with "prefers-reduced-motion" setting.</p>
+            <div class="test-code">Enable reduced motion in OS settings and test animations</div>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-low">
+        <input type="checkbox" id="a11y-3">
+        <div>
+            <strong>Keyboard Navigation</strong>
+            <span class="priority-badge">Medium</span>
+            <p>Ensure animations don't interfere with keyboard navigation.</p>
+            <div class="test-code">Navigate page using only Tab/Enter keys</div>
+        </div>
+    </div>
+</div>
+
+<div class="checklist-section">
+    <h2 class="section-title">🌐 Cross-Browser Testing</h2>
+    
+    <div class="checklist-item priority-medium">
+        <input type="checkbox" id="browser-1">
+        <div>
+            <strong>Chrome/Edge (Chromium)</strong>
+            <span class="priority-badge">High</span>
+            <p>Test all features in Chrome and Edge browsers.</p>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-medium">
+        <input type="checkbox" id="browser-2">
+        <div>
+            <strong>Firefox</strong>
+            <span class="priority-badge">High</span>
+            <p>Verify animations work correctly in Firefox.</p>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-low">
+        <input type="checkbox" id="browser-3">
+        <div>
+            <strong>Safari</strong>
+            <span class="priority-badge">Medium</span>
+            <p>Test Safari compatibility (especially on macOS/iOS).</p>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-low">
+        <input type="checkbox" id="browser-4">
+        <div>
+            <strong>Mobile Browsers</strong>
+            <span class="priority-badge">Medium</span>
+            <p>Test on mobile Safari and Chrome for Android.</p>
+        </div>
+    </div>
+</div>
+
+<div class="checklist-section">
+    <h2 class="section-title">🔍 Error Handling & Edge Cases</h2>
+    
+    <div class="checklist-item priority-medium">
+        <input type="checkbox" id="error-1">
+        <div>
+            <strong>Invalid Parameters</strong>
+            <span class="priority-badge">High</span>
+            <p>Test with invalid animation types, negative speeds, etc.</p>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-medium">
+        <input type="checkbox" id="error-2">
+        <div>
+            <strong>Empty Text</strong>
+            <span class="priority-badge">High</span>
+            <p>Test behavior with empty or very long text strings.</p>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-low">
+        <input type="checkbox" id="error-3">
+        <div>
+            <strong>Special Characters</strong>
+            <span class="priority-badge">Medium</span>
+            <p>Test with emoji, Unicode characters, and HTML entities.</p>
+        </div>
+    </div>
+</div>
+
+<div class="checklist-section">
+    <h2 class="section-title">📋 Final Integration Checklist</h2>
+    
+    <div class="checklist-item priority-high">
+        <input type="checkbox" id="final-1">
+        <div>
+            <strong>No Console Errors</strong>
+            <span class="priority-badge">Critical</span>
+            <p>Verify no JavaScript errors in browser console.</p>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-high">
+        <input type="checkbox" id="final-2">
+        <div>
+            <strong>No PHP Errors</strong>
+            <span class="priority-badge">Critical</span>
+            <p>Check WordPress debug log for PHP errors.</p>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-medium">
+        <input type="checkbox" id="final-3">
+        <div>
+            <strong>Plugin Deactivation</strong>
+            <span class="priority-badge">High</span>
+            <p>Test plugin deactivation/reactivation without errors.</p>
+        </div>
+    </div>
+
+    <div class="checklist-item priority-low">
+        <input type="checkbox" id="final-4">
+        <div>
+            <strong>Documentation Review</strong>
+            <span class="priority-badge">Medium</span>
+            <p>Review README.md and usage documentation for accuracy.</p>
+        </div>
+    </div>
+</div>
+
+<div class="completion-stats">
+    <h3>🎉 Testing Complete!</h3>
+    <p>Once all critical and high-priority tests pass, the integration is ready for production use.</p>
+    <p><strong>Next Steps:</strong> Performance optimization, additional animation types, WordPress.org submission</p>
+</div>
+
+<script>
+// Progress tracking functionality
+function updateProgress() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const checked = document.querySelectorAll('input[type="checkbox"]:checked');
+    const total = checkboxes.length;
+    const completed = checked.length;
+    const percentage = Math.round((completed / total) * 100);
+    
+    document.getElementById('total-count').textContent = total;
+    document.getElementById('completed-count').textContent = completed;
+    document.getElementById('completion-percentage').textContent = percentage;
+    
+    // Save progress to localStorage
+    const progress = {};
+    checkboxes.forEach(checkbox => {
+        progress[checkbox.id] = checkbox.checked;
+    });
+    localStorage.setItem('shogunSlogansTestProgress', JSON.stringify(progress));
+}
+
+// Load saved progress
+function loadProgress() {
+    const saved = localStorage.getItem('shogunSlogansTestProgress');
+    if (saved) {
+        const progress = JSON.parse(saved);
+        Object.keys(progress).forEach(id => {
+            const checkbox = document.getElementById(id);
+            if (checkbox) {
+                checkbox.checked = progress[id];
+            }
+        });
+    }
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+    loadProgress();
+    updateProgress();
+    
+    // Add event listeners
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', updateProgress);
+    });
+});
+</script>
+
+</body>
+</html>
