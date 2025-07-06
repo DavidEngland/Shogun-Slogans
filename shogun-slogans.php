@@ -768,8 +768,14 @@ class ShogunSlogansPlugin {
     }
 }
 
+// Load animation API components
+require_once SHOGUN_SLOGANS_PLUGIN_PATH . 'includes/animation-api.php';
+require_once SHOGUN_SLOGANS_PLUGIN_PATH . 'includes/rest-api.php';
+require_once SHOGUN_SLOGANS_PLUGIN_PATH . 'includes/enhanced-shortcode.php';
+require_once SHOGUN_SLOGANS_PLUGIN_PATH . 'includes/blocks.php';
+
 // Initialize the plugin
-ShogunSlogans::get_instance();
+ShogunSlogansPlugin::get_instance();
 
 /**
  * Helper function to display typewriter text

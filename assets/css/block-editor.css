@@ -1,0 +1,239 @@
+/**
+ * Shogun Slogans Block Editor Styles
+ * 
+ * Styles for the Gutenberg blocks in the editor
+ * 
+ * @package ShogunSlogans
+ * @since 3.2.0
+ */
+
+/* Animation Block Styles */
+.shogun-animation-block {
+    margin: 20px 0;
+}
+
+.shogun-block-preview {
+    margin-top: 15px;
+}
+
+.shogun-block-label {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.shogun-loading {
+    color: #0073aa;
+    font-style: italic;
+}
+
+.shogun-preview-container {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.shogun-preview-container:hover {
+    border-color: #0073aa !important;
+}
+
+.shogun-typewriter-block .shogun-typewriter-preview {
+    margin-top: 15px;
+}
+
+/* Inspector Control Enhancements */
+.components-panel__body .shogun-color-picker {
+    margin-bottom: 16px;
+}
+
+.shogun-color-picker label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #1e1e1e;
+}
+
+/* Animation Type Icons */
+.shogun-animation-type-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Block Category Icon */
+.block-editor-block-types-list .editor-block-list-item-shogun-slogans {
+    position: relative;
+}
+
+.block-editor-block-types-list .editor-block-list-item-shogun-slogans::before {
+    content: "✨";
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 12px;
+}
+
+/* Live Preview Animations */
+.shogun-preview-container .shogun-typewriter-abc123 {
+    font-family: monospace;
+}
+
+.shogun-preview-container .shogun-handwritten-abc123 {
+    font-family: cursive;
+}
+
+.shogun-preview-container .shogun-neon-abc123 {
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+/* Loading States */
+.shogun-preview-container.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.shogun-preview-container.loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #0073aa;
+    border-radius: 50%;
+    animation: shogun-spin 1s linear infinite;
+}
+
+@keyframes shogun-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error States */
+.shogun-preview-error {
+    color: #d63638;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Success States */
+.shogun-preview-success {
+    border-color: #00a32a !important;
+    background-color: #f0f8f0 !important;
+}
+
+/* Enhanced Inspector Controls */
+.components-panel__body.shogun-animation-settings {
+    border-left: 3px solid #0073aa;
+}
+
+.components-panel__body.shogun-text-styling {
+    border-left: 3px solid #00a32a;
+}
+
+/* Range Control Styling */
+.components-range-control.shogun-speed-control .components-range-control__slider {
+    background: linear-gradient(to right, #0073aa, #005a87);
+}
+
+/* Toggle Control Styling */
+.components-toggle-control.shogun-toggle .components-toggle-control__track {
+    background-color: #0073aa;
+}
+
+/* Select Control Styling */
+.components-select-control.shogun-animation-select select {
+    border-color: #0073aa;
+}
+
+.components-select-control.shogun-animation-select select:focus {
+    border-color: #005a87;
+    box-shadow: 0 0 0 1px #005a87;
+}
+
+/* Color Picker Enhancements */
+.components-color-picker.shogun-color-picker {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+/* Block Icon Customization */
+.block-editor-block-icon.shogun-animation-icon {
+    color: #0073aa;
+}
+
+.block-editor-block-icon.shogun-typewriter-icon {
+    color: #00a32a;
+}
+
+/* Help Text Styling */
+.components-base-control__help.shogun-help {
+    color: #757575;
+    font-style: italic;
+}
+
+/* Panel Header Customization */
+.components-panel__body-title.shogun-panel-title {
+    color: #0073aa;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 782px) {
+    .shogun-preview-container {
+        padding: 15px;
+    }
+    
+    .shogun-block-label {
+        font-size: 11px;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .shogun-preview-container {
+        border-width: 3px;
+        border-style: solid;
+    }
+    
+    .shogun-block-label {
+        font-weight: bold;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .shogun-preview-container {
+        transition: none;
+    }
+    
+    @keyframes shogun-spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(0deg); }
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .shogun-preview-container {
+        background-color: #1e1e1e;
+        border-color: #3c434a;
+        color: #e0e0e0;
+    }
+    
+    .shogun-block-label {
+        color: #ccc;
+    }
+    
+    .shogun-preview-error {
+        color: #ff6b6b;
+    }
+}
